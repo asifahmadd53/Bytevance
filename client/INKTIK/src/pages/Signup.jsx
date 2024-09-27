@@ -1,13 +1,36 @@
-import React from 'react';
-import { loginImg } from '../assets'; // Removed signupImg since it's not used
+import React, { useState } from 'react';
+import { signupImg } from '../assets'; 
+// Removed signupImg since it's not used
+import axios from 'axios'
 
 const Login = () => {
+
+    const [fullname, setFullname] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const signup = async (e)=>{
+      e.preventDefault()
+      try{
+        const response = await axios.post('http://localhost:4000/user/signup', {
+          fullname,
+          email,
+          password
+      });
+         console.log(response.data)
+      }
+      catch(err){
+        console.log('error', err)
+      }
+    }
+
+
   return (
     <div className='h-screen w-full'>
       <div className='flex w-full h-full relative'>
         {/* Left Section with Image */}
         <div className="left w-[20%] hidden md:block h-full">
-          <img src={loginImg} className='object-cover h-full' alt="Login Background" />
+          <img src={signupImg} className='object-cover h-full' alt="Login Background" />
         </div>
         {/* Right Section with Form */}
         <div className="right md:w-[80%] flex items-center justify-center w-full m-2 relative">
@@ -15,7 +38,10 @@ const Login = () => {
             InkTiq
           </h1>
           <div className='flex flex-col items-start w-full max-w-md relative'>
-            <form className='flex flex-col items-start justify-center mt-20 w-full'> 
+            <form 
+            onSubmit={signup} 
+            action=''
+            className='flex flex-col items-start justify-center mt-20 w-full'> 
               <h1 className='text-4xl sm:text-5xl font-bold mb-8'>Welcome back!</h1>
               <button
     className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 mb-5">
@@ -45,24 +71,30 @@ const Login = () => {
 </button>
 
               <input 
+              value={fullname}
+              onChange={(e)=> setFullname(e.target.value)}
                 type="text" 
                 placeholder="Full name" 
                 className='p-3 w-full border outline-none rounded-3xl bg-gray-200 text-sm px-4 mb-3'
               />
               <input 
+              value={email}
+              onChange={(e)=> setEmail(e.target.value)}
                 type="text" 
                 placeholder="Your email address" 
                 className='p-3 w-full border outline-none rounded-3xl bg-gray-200 text-sm px-4 mb-3'
               />
               <input 
+              value={password}
+              onChange={(e)=> setPassword(e.target.value)}
                 type="password" // Changed type to "password" for the password field
                 placeholder="Password" 
                 className='p-3 w-full border outline-none rounded-3xl bg-gray-200 text-sm px-4 mb-3'
               />
-              <button className='bg-[#000] text-white py-2 rounded-3xl mt-4 px-5'>
-                Send Login Link
+              <button type='submit' className='bg-[#000] text-white py-2 rounded-3xl mt-4 px-5'>
+                Create 
               </button>
-              <p className='text-sm md:text-lg mt-7'>Don't have an account yet?</p>
+              <p className='text-sm md:text-lg mt-7'>Login?</p>
 
              
             </form>
