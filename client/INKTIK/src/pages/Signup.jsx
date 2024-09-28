@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { signupImg } from '../assets'; 
 // Removed signupImg since it's not used
 import axios from 'axios'
-
+import { userContext } from '../contexts/UserContext';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Login = () => {
 
     const [fullname, setFullname] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const {setUserInfo} = useContext(userContext)
+    // const [redirect, setRedirect] = useState(false)
+    const navigate = useNavigate()
 
     const signup = async (e)=>{
       e.preventDefault()
@@ -16,13 +21,18 @@ const Login = () => {
           fullname,
           email,
           password
+      },{
+        withCredentials: true
       });
-         console.log(response.data)
+         setUserInfo(response.data)
+         navigate('/')
       }
       catch(err){
         console.log('error', err)
       }
     }
+
+    
 
 
   return (
@@ -94,7 +104,7 @@ const Login = () => {
               <button type='submit' className='bg-[#000] text-white py-2 rounded-3xl mt-4 px-5'>
                 Create 
               </button>
-              <p className='text-sm md:text-lg mt-7'>Login?</p>
+              <p className='text-sm md:text-lg mt-7'> Already have an account? <Link to={'/login'}>Login?</Link> </p>
 
              
             </form>
