@@ -8,11 +8,13 @@ const Hero = () => {
     <>
     <Header/>
     <SideMenu/>
+    
+   
     <div className='h-auto w-full'>
       <div className='pt-8 px-5'>
         <h1 className='text-4xl sm:text-5xl md:text-7xl '>
           <span className='font-bold'>
-            Hey, we're Bytevance<span className='text-2xl'>●</span>
+            Hey, we're InkTiq<span className='text-2xl'>●</span>
           </span>
           <br className='md:hidden' /> See our thoughts, stories and ideas.
         </h1>
