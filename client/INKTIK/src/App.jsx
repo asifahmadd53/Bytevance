@@ -6,6 +6,9 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Stories from './components/Stories';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import PricingCard from './components/PricingCard';
+import Contact from './pages/Contact';
+import CreateBlogs from './pages/CreateBlogs';
 
 const App = () => {
   return (
@@ -21,6 +24,9 @@ const App = () => {
         <Route path='/' element={<Hero/>}/> 
          <Route path='/login' element={<Login/>}/>
          <Route path='/signup' element={<Signup/>}/>
+         <Route path='/pricing' element={<PricingCard/>}/>
+         <Route path='/contact' element={<Contact/>}/>
+         <Route path='/create-blogs' element={<CreateBlogs/>}/>
        </Routes>
      </BrowserRouter>
     
