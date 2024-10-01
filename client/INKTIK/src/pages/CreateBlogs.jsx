@@ -1,7 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { loginImg } from "../assets";
+import axios from "axios";
 
 const CreateBlogs = () => {
+
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [image, setImage] = useState(null)
+    const [summary, setSummary] = useState('')
+
+    const handleImageChange = (e)=>{
+        const file = e.target.files[0]; 
+        if(file){
+            const reader = new FileReader()
+            reader.onload = () => {
+                setImage(reader.result)
+            }
+            reader.readAsDataURL(file)
+        }
+    }
+
+    const createdBlog = async(e)=>{
+        e.preventDefault()
+        const formData = new FormData();
+       formData.append("title", title);
+       formData.append("description", description);
+       formData.append("summary", summary);
+       
+       if(image){
+        formData.append("image", image);
+       }
+        try{
+            const response = await axios.post('http://localhost:4000/blog/created-blog/',formData,{
+                headers:{
+                    'Content-Type': 'multipart/form-data',
+                }
+            })
+            if (!response.data) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            console.log(response.data)
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
   return (
     <div>
       <div className="h-screen w-full">
@@ -24,7 +68,7 @@ const CreateBlogs = () => {
 
               
 
-              <form className="flex flex-col items-center justify-center mt-32 w-full">
+              <form onSubmit={createdBlog} className="flex flex-col items-center justify-center mt-32 w-full">
               <h1 className="text-center text-4xl sm:text-5xl font-bold mb-6">
                   Create Blog 
                 </h1>
@@ -34,28 +78,34 @@ const CreateBlogs = () => {
                 <div className="w-full px-4">
                 <label className="pb-5" htmlFor="">Title</label>
                   <input
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                     className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2"
                     placeholder="Type here..."
                   />
                 <label className="pb-5" htmlFor="">Description</label>
                   <textarea
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                     className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2 resize-none "
                     placeholder="Type here..."
                     rows={4}
                   />
                 <label className="pb-5" htmlFor="">Details</label>
                   <textarea
+                  value={summary}
+                  onChange={(e) => setSummary(e.target.value)}
                     className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2 resize-none"
                     placeholder="Type here..."
                     rows={6}
                   />
                    <div className="w-10 h-10 rounded-full mt-4 flex items-center justify-center ">
     <input
+    onChange={handleImageChange}
+    type="file"
         className="absolute opacity-0"
-        type="file"
         id="fileInput"
         accept="image/*"
-        required
     />
     <svg
         className="w-5 h-5 cursor-pointer"

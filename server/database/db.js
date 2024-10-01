@@ -7,7 +7,6 @@ mongoose.connect(mongoURL,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-
 const db = mongoose.connection
 
 db.on('connected',()=>{

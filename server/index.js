@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const userRoutes = require('./routes/user')
+const blogRoutes = require('./routes/blog')
 const db = require('./database/db')
 const cors = require('cors'); 
 const cookieparser = require('cookie-parser')
@@ -17,6 +18,7 @@ const port = process.env.PORT || 4000
 
 
 app.use('/user',userRoutes)
+app.use('/blog',blogRoutes)
 
 
 app.listen(port,()=>{

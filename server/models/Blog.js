@@ -5,7 +5,7 @@ const BlogSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    content:{
+    description:{
         type:String,
         required:true
     },
@@ -19,5 +19,14 @@ const BlogSchema = new mongoose.Schema({
     },
     author:{
         type: mongoose.Schema.Types.ObjectId, ref:'user'
-    }
+    },
+    approved: { 
+        type: Boolean, default: false 
+    },
+    createdAt: { 
+        type: Date, default: Date.now
+     }
 })
+
+const postModel = mongoose.model('blog', BlogSchema)
+module.exports = postModel
