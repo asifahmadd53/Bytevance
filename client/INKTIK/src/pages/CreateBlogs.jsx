@@ -9,42 +9,36 @@ const CreateBlogs = () => {
     const [image, setImage] = useState(null)
     const [summary, setSummary] = useState('')
 
-    const handleImageChange = (e)=>{
-        const file = e.target.files[0]; 
-        if(file){
-            const reader = new FileReader()
-            reader.onload = () => {
-                setImage(reader.result)
-            }
-            reader.readAsDataURL(file)
-        }
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
     }
 
-    const createdBlog = async(e)=>{
-        e.preventDefault()
+    const createdBlog = async(e) => {
+        e.preventDefault();
         const formData = new FormData();
-       formData.append("title", title);
-       formData.append("description", description);
-       formData.append("summary", summary);
-       
-       if(image){
-        formData.append("image", image);
-       }
-        try{
-            const response = await axios.post('http://localhost:4000/blog/created-blog/',formData,{
-                headers:{
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("summary", summary);
+    
+        if (image) {
+            formData.append("image", image); // Directly append the file
+        }
+        
+        try {
+            const response = await axios.post('http://localhost:4000/blog/created-blog', formData, {
+                headers: {
                     'Content-Type': 'multipart/form-data',
-                }
-            })
+                },
+                withCredentials: true
+            });
             if (!response.data) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            console.log(response.data)
+            console.log(response.data);
+        } catch (err) {
+            console.log(err);
         }
-        catch(err){
-            console.log(err)
-        }
-    }
+    };
 
   return (
     <div>
@@ -68,7 +62,7 @@ const CreateBlogs = () => {
 
               
 
-              <form onSubmit={createdBlog} className="flex flex-col items-center justify-center mt-32 w-full">
+              <form onSubmit={createdBlog}  encType="multipart/form-data" className="flex flex-col items-center justify-center mt-32 w-full">
               <h1 className="text-center text-4xl sm:text-5xl font-bold mb-6">
                   Create Blog 
                 </h1>
