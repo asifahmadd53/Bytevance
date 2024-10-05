@@ -13,32 +13,31 @@ const CreateBlogs = () => {
         setImage(e.target.files[0]);
     }
 
-    const createdBlog = async(e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("title", title);
-        formData.append("description", description);
-        formData.append("summary", summary);
-    
-        if (image) {
-            formData.append("image", image); // Directly append the file
-        }
-        
-        try {
-            const response = await axios.post('http://localhost:4000/blog/created-blog', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-                withCredentials: true
-            });
-            if (!response.data) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            console.log(response.data);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    const createdBlog = async (e) => {
+      e.preventDefault();
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("summary", summary);
+      
+      if (image) {
+          formData.append("image", image); // Append image file
+      }
+  
+      try {
+          const response = await axios.post('http://localhost:4000/blog/created-blog', formData, {
+              headers: {
+                  'Content-Type': 'multipart/form-data',
+              },
+              withCredentials: true // Ensure cookies are sent with the request
+          });
+          
+          console.log(response.data); // Handle successful response
+      } catch (err) {
+          console.error('Error posting blog:', err);
+      }
+  };
+  
 
   return (
     <div>
@@ -62,7 +61,7 @@ const CreateBlogs = () => {
 
               
 
-              <form onSubmit={createdBlog}  encType="multipart/form-data" className="flex flex-col items-center justify-center mt-32 w-full">
+              <form onSubmit={createdBlog} method="post"  encType="multipart/form-data" className="flex flex-col items-center justify-center mt-32 w-full">
               <h1 className="text-center text-4xl sm:text-5xl font-bold mb-6">
                   Create Blog 
                 </h1>
