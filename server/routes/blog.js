@@ -43,4 +43,15 @@ router.post('/created-blog', upload.single('image'), async (req, res) => {
     }
 });
 
+
+router.get('/pending-blogs',async(req, res)=>{
+    try{
+        const blogs = await blogModel.find().populate('author',['fullname']).sort({createdAt:-1}).limit(20)
+        res.status(200).json(blogs)
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
 module.exports = router;

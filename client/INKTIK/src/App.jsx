@@ -13,6 +13,7 @@ import Admin from './pages/Admin';
 import PendingBlog from './components/PendingBlog';
 import PendingBlogs from './components/PendingBlogs';
 import Layout from './Layout';
+import BlogPage from './pages/BlogPage';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
          <Route path='/pricing' element={<PricingCard/>}/>
          <Route path='/contact' element={<Contact/>}/>
          <Route path='/create-blog' element={<CreateBlogs/>}/>
+         <Route path='/blog-page' element={<BlogPage/>}/>
         
 
 

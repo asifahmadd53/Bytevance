@@ -1,17 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PendingBlog from './PendingBlog'
+import axios from 'axios';
 
 const PendingBlogs = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(()=>{
+    axios.get('http://localhost:4000/blog/pending-blogs')
+      .then(response => {
+        setBlogs(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+    
+  },[])
+
+
   return (
     <div>
         <h1 className='text-4xl text-center py-8'>Pending Blogs</h1>
         <div className='flex gap-4 flex-wrap items-center justify-center'>
-            <PendingBlog/>
-            <PendingBlog/>
-            <PendingBlog/>
-            <PendingBlog/>
-            <PendingBlog/>
-            <PendingBlog/>
+        
+        {blogs?.length > 0 ? (
+          blogs.map((blog) => <PendingBlog key={blog._id} {...blog} />)
+        ) : (
+          <p className='text-center text-lg'>No pending blogs available.</p>
+        )}
+
         </div>
     </div>
   )
