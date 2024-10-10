@@ -36,46 +36,39 @@ const Stories = () => {
         </div>
       </div>
 
-     
-        <Swiper
-          ref={swiperRef}
-          // spaceBetween={250}
-          breakpoints={{
-            320: {
-              slidesPerView: 2,
-              spaceBetween: 260,
-            },
-            480: {
-              slidesPerView: 3,
-              spaceBetween: 250,
-            },
-            640: {
-              slidesPerView: 3,
-              spaceBetween: 80,
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 180,
-            },
-            1060:{
-              slidesPerView: 6,
-              spaceBetween: 180,
-            }
-
-
-          }}
-          modules={[FreeMode, Pagination]}
-          onResize={() => swiperRef.current?.swiper.update()}
-        >
-          <SwiperSlide><Story/></SwiperSlide>
-          <SwiperSlide><Story/></SwiperSlide>
-          <SwiperSlide><Story/></SwiperSlide>
-          <SwiperSlide><Story/></SwiperSlide>
-          <SwiperSlide><Story/></SwiperSlide>
-          <SwiperSlide><Story/></SwiperSlide>
-        </Swiper>
-      </div>
-    
+      <Swiper
+        ref={swiperRef}
+        slidesPerView={2}
+        spaceBetween={290} // Adjust space between here
+        breakpoints={{
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 20, // Adjust space for smaller screens
+          },
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 100, // Adjust space for medium screens
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 250, // Adjust space for tablets
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 280, // Adjust space for larger screens
+          },
+        }}
+        modules={[FreeMode, Pagination]}
+        onResize={() => swiperRef.current?.swiper.update()}
+      >
+        <SwiperSlide><Story/></SwiperSlide>
+        <SwiperSlide><Story/></SwiperSlide>
+        <SwiperSlide><Story/></SwiperSlide>
+        <SwiperSlide><Story/></SwiperSlide>
+        <SwiperSlide><Story/></SwiperSlide>
+        <SwiperSlide><Story/></SwiperSlide>
+      </Swiper>
+    </div>
   );
 };
 

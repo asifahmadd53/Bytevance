@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './Header';
 import SideMenu from './SideMenu';
 import Stories from './Stories';
+import Lately from './Lately';
+import LatelyCards from './LatelyCards';
 
 const Hero = () => {
   return (
@@ -32,6 +34,8 @@ const Hero = () => {
       </div>
     </div>
     <Stories/>
+    <Lately/>
+    {/* <LatelyCards/> */}
     </>
   );
 };

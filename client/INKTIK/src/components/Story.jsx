@@ -2,22 +2,21 @@ import React from 'react';
 
 const Story = () => {
   return (
-    <div className=''>
-      <div className="p-5 flex items-center h-auto">
-        <div className="min-w-[250px] max-w-[250px]">
-          <div className="relative flex max-w-[26rem] flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-            <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border ">
+      <div className="flex items-center m-6">
+        <div className="object-fill">
+          <div className="relative flex w-80 md:min-w-80 sm:min-w-72 xs:max-w-60  flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 border border-black">
+            <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border h-80 xs:h-60 sm:h-72 md:h-80 xl:h-96">
               <img
-                className='rounded-xl h-60 md:h-80 lg:h-96 w-full object-cover ' // Adjust the height here
+                className='rounded-xl h-full md:h-80 lg:h-96 w-full object-cover ' // Adjust the height here
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"
                 alt="ui/ux review check"
               />
             </div>
             <div className="px-4 py-2">
-              <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+              <h4 className="block font-sans text-2xl xs:text-xl sm:text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                 UI/UX Review Check hiii my name is ssif
               </h4>
-              <p className="block mt-1 font-sans text-xl antialiased font-normal leading-relaxed text-gray-700">
+              <p className="block mt-1 font-sans text-xl xs:text-lg sm:text-2xl antialiased font-normal leading-relaxed text-gray-700">
                 Because it&apos;s about motivating the doers. Because I&apos;m here to follow my dreams and inspire others.
               </p>
             </div>
@@ -41,7 +40,8 @@ const Story = () => {
           </div>
         </div>
       </div>
-    </div>
+      
+    
   );
 };
 

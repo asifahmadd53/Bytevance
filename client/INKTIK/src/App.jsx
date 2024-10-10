@@ -26,15 +26,11 @@ const App = () => {
          <Route path='/pricing' element={<PricingCard/>}/>
          <Route path='/contact' element={<Contact/>}/>
          <Route path='/create-blog' element={<CreateBlogs/>}/>
-         <Route path='/blog-page' element={<BlogPage/>}/>
+         <Route path='/blog/blog/:id' element={<BlogPage/>}/>
         
-
-
-
          <Route path='/admin-panel' element={<Layout/>}>
          <Route path='pending-blogs' element={<PendingBlogs/>}/>
          </Route>
-
          </Routes>
          </BrowserRouter>
     
