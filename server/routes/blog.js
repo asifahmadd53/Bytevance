@@ -65,4 +65,28 @@ router.get('/blog/:id',async(req, res)=>{
     }
 })
 
+router.get('/approved-blogs',async(req, res)=>{
+    try{
+        const blogs = await blogModel.find({approved:true}).populate('author',['fullname']).sort({createdAt:-1}).limit(20)
+        res.status(200).json(blogs)
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
+
+
+router.get('/blog-user-page/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const blog = await blogModel.findById(id).populate('author', ['fullname']);
+        res.status(200).json(blog);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Failed to fetch blog post' });
+    }
+});
+
+
 module.exports = router;

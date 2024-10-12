@@ -41,29 +41,70 @@ router.post('/signup', async (req, res) => {
 });
 
 
-router.post('/login',async (req, res)=>{
-    const {email,password}=req.body;
-    try{
-        const user = await userModel.findOne({email});
-        if(!user){
-            res.status(400).json({message:"Invalid username and password"})
-        }
-        const isMatch = await bcrypt.compare(password,user.password);
-        if(isMatch){
-            jwt.sign({email, id: user._id}, process.env.JWT_SECRET, {}, (err, token)=>{
-                if(err) throw err
-                res.cookie('token', token).json({
-                    email: user.email
-                })
-            })
+// router.post('/login',async (req, res)=>{
+//     const {email,password}=req.body;
+//     try{
+//         const user = await userModel.findOne({email});
+//         if(!user){
+//             res.status(400).json({message:"Invalid username and password"})
+//         }
 
-        }else{
-            res.status(400).json({message:"Invalid username and password"})
+       
+//         const isAdmin = email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD;
+//         const role = isAdmin ? 'admin' : 'user';
+
+
+//         const isMatch = await bcrypt.compare(password,user.password);
+//         if(isMatch){
+//             jwt.sign({email, id: user._id, role }, process.env.JWT_SECRET, {}, (err, token)=>{
+//                 if(err) throw err
+//                 res.cookie('token', token).json({
+//                     email: user.email
+//                 })
+//             })
+
+//         }else{
+//             res.status(400).json({message:"Invalid username and password"})
+//         }
+//     }catch(err){
+//         console.log(err)
+//     }
+// })
+
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+       
+        if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+            
+            const role = 'admin';
+            const token = jwt.sign({ email, role }, process.env.JWT_SECRET);
+            res.cookie('token', token).json({ email, role });
+            return;
         }
-    }catch(err){
-        console.log(err)
+
+       
+        const user = await userModel.findOne({ email });
+        
+        if (!user) {
+            return res.status(400).json({ message: "Invalid username and password" });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (isMatch) {
+            const role = 'user'; 
+            const token = jwt.sign({ email, id: user._id, role }, process.env.JWT_SECRET);
+            res.cookie('token', token).json({ email: user.email, role });
+        } else {
+            res.status(400).json({ message: "Invalid username and password" });
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: "Internal Server Error" });
     }
-})
+});
+
 
 router.get('/profile',async( req, res)=>{
         const {token} = req.cookies

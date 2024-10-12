@@ -4,6 +4,8 @@ import SideMenu from './SideMenu';
 import Stories from './Stories';
 import Lately from './Lately';
 import LatelyCards from './LatelyCards';
+import Recomended from './Recomended';
+import Footer from './Footer';
 
 const Hero = () => {
   return (
@@ -36,6 +38,8 @@ const Hero = () => {
     <Stories/>
     <Lately/>
     {/* <LatelyCards/> */}
+    <Recomended/>
+    <Footer/>
     </>
   );
 };

@@ -41,7 +41,7 @@ const AdminSideMenu = () => {
                 <h1 className='text-white text-xl p-4 font-bold'>Dashboard</h1>
                 <ul className='text-4xl text-white text-center py-8'>
                 <li className="pb-2 relative transition-all ease-linear duration-700 hover:underline after:bg-black cursor-pointer">
-                <Link onClick={()=> setOpen((prev)=> !prev)} to={'/create-blog'}>
+                <Link onClick={()=> setOpen((prev)=> !prev)} to={'/admin-panel/blogs-by-admin'}>
                 Create Blogs
 
                 </Link>
@@ -50,6 +50,11 @@ const AdminSideMenu = () => {
                     <li className="pb-5 relative transition-all ease-linear duration-1000 hover:underline  after:bg-black cursor-pointer">
                         <Link onClick={()=> setOpen((prev)=> !prev)} to='/admin-panel/pending-blogs'>
                         Pending Blogs
+                        </Link>
+                        </li>
+                    <li className="pb-5 relative transition-all ease-linear duration-1000 hover:underline  after:bg-black cursor-pointer">
+                        <Link onClick={()=> setOpen((prev)=> !prev)} to='/admin-panel/approved-blogs'>
+                        Approved Blogs
                         </Link>
                         </li>
                 </ul>

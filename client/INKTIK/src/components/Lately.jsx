@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import LatelyCards from './LatelyCards'
+import axios from 'axios'
+import { useParams } from 'react-router-dom';
 
 const Lately = () => {
+
+  const [adminBlogs, setAdminBlogs] = useState([]);
+
+
+  useEffect(() => {
+    axios.get('http://localhost:4000/admin/admin-blogs')
+      .then(response => {
+        setAdminBlogs(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+  
+
+
   return (
     <div className='w-full'>
         <hr className='w-[90%] m-auto border-t border-[#363535d8]' />
@@ -40,12 +59,25 @@ const Lately = () => {
 
        </div>
 
-   <div className='grid w-full grid-cols-2 md:grid-cols-3  overflow-hidden gap-4 px-6'>
-   <LatelyCards/>
-    <LatelyCards/>
-    <LatelyCards/>
+   <div className='grid w-full grid-cols-2 md:grid-cols-3  overflow-hidden md:px-14 px-5'>
+
+    
+    
+    {adminBlogs.map((blog) => (
+  <LatelyCards key={blog._id} {...blog} />
+))}
+
+   
+    
     
    </div>
+    <div className='flex items-center justify-center'>
+    <div className='bg-black text-white w-36 text-center p-3 py-5 rounded-[5rem]'>
+    Load More
+   </div>
+    </div>
+  
+      
       
 
      

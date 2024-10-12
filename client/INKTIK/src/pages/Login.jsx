@@ -18,9 +18,14 @@ const Login = () => {
         withCredentials:true
       }
     );
-      console.log(response.data); 
+      
       setUserInfo(response.data)
-      navigate('/')
+
+       if (response.data.role === 'admin') {
+            navigate('/admin-panel');
+        } else {
+            navigate('/');
+        }
       
     } catch (error) {
       console.error("Login failed", error); 
@@ -43,7 +48,7 @@ const Login = () => {
             {/* Logo placed at the top */}
             
 
-            <form onSubmit={login} className='flex flex-col items-start justify-center mt-20 w-full'> {/* Added margin-top to push form down */}
+            <form onSubmit={login} className='flex flex-col items-start justify-center mt-20 w-full'>
               <h1 className='text-4xl sm:text-5xl font-bold mb-8'>Welcome back!</h1>
               <input 
               value={email}
@@ -60,9 +65,9 @@ const Login = () => {
                 className='p-3 w-full border outline-none rounded-3xl bg-gray-300 text-sm px-4 mb-3'
               />
               <button className='bg-[#000] text-white py-2 rounded-3xl mt-4 px-5'>
-                Send Login Link
+                Login
               </button>
-              <p className='text-sm md:text-lg mt-7'>Don't have an account yet?</p>
+              <p className='text-sm md:text-lg mt-7'>fdxgfsg</p>
             </form>
           </div>
         </div>
