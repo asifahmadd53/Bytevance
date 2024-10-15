@@ -1,6 +1,4 @@
-import React from 'react';
-import Header from './components/Header';
-import SideMenu from './components/SideMenu';
+
 import Hero from './components/Hero';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -17,10 +15,12 @@ import BlogPage from './pages/BlogPage';
 import BlogsByAdmin from './pages/BlogsByAdmin';
 import ApprovedBlogs from './components/ApprovedBlogs';
 import BlogPageUser from './pages/BlogPageUser';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
    <>
+   <Toaster /> 
     <BrowserRouter>
        <Routes>
         <Route path='/' element={<Hero/>}/> 

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const blogModel = require('../models/Blog');
 const jwt = require('jsonwebtoken');
-
+const userModel = require('../models/user')
 require('dotenv').config();
 
 const upload = require('../config/multer-config')
@@ -20,7 +20,12 @@ router.post('/created-blog', upload.single('image'), async (req, res) => {
         // Verify the JWT token
         const info = jwt.verify(token, process.env.JWT_SECRET);
 
-        // Destructure request body
+        const user = await userModel.findById(info.id);
+        // if (!user) {
+        //     console.log('User not found');
+        //     return res.status(404).json({ message: 'User not found' });
+        // }
+
         const { title, description, summary } = req.body; 
         
         const imageBase64 = req.file.buffer.toString('base64');
@@ -35,6 +40,7 @@ router.post('/created-blog', upload.single('image'), async (req, res) => {
             cover: imageSrc,
             author: info.id,    
         });
+
         console.log('Blog created successfully:', blog);
         res.status(201).json({ message: 'Blog created successfully', blog });
     } catch (err) {

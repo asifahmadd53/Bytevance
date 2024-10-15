@@ -13,26 +13,32 @@ const Hero = () => {
     <Header/>
     <SideMenu/>
     <div className='h-auto w-full'>
-      <div className='pt-8 px-5'>
-        <h1 className='text-4xl sm:text-5xl md:text-7xl '>
-          <span className='font-bold'>
-            Hey, we're Bytevance<span className='text-2xl'>●</span>
-          </span>
-          <br className='md:hidden' /> See our thoughts, stories and ideas.
-        </h1>
-        <form className="mt-10 md:mx-0 max-w-md  rounded-full bg-gray-200 border flex focus-within:border-gray-300 md:w-max-[50%]">
+      <div className='pt-11 px-5 md:px-16'>
+      <h1 className='text-6xl md:text-8xl tracking-wider'>
+  <span className='font-bold'>
+    Hey, we're Bytevance<span className='text-2xl md:text-4xl'>●</span>
+  </span>
+  <br className='tracking-wider font-thin' /> See our thoughts, stories and ideas.
+</h1>
+
+        
+        <div className='flex items-center gap-4 '>
+        <form className="mt-10 md:mx-0 max-w-md  rounded-full bg-gray-200  flex focus-within:border-gray-300 md:w-max-[60%]">
           <input 
             type="text"
             placeholder="Your email address"
-            className="bg-transparent w-full focus:outline-none pr-4 font-semibold border-0 text-sm md:text-lg focus:ring-0 px-6 py-3"
+            className="bg-transparent w-full focus:outline-none pr-4 border-0 text-xl md:text-lg focus:ring-0 px-6 py-4"
             name="topic"
           />
           <button
-            className="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full font-medium tracking-wide border disabled:cursor-not-allowed disabled:opacity-50 transition ease-in-out duration-150 text-base bg-black text-white font-medium tracking-wide border-transparent py-1.5  md:h-auto"
+            className="flex flex-row items-center justify-center min-w-[160px] px-6  rounded-full border disabled:cursor-not-allowed disabled:opacity-50  ease-in-out  text-2xl bg-black text-white font-medium tracking-wide border-transparent py-4  md:h-auto hover:bg-[#314bff] transition-colors duration-300"
           >
             Subscribe
           </button>
+          
         </form>
+        <p className='hidden md:block w-96 mt-10'>Get the email newsletter and unlock access to members-only content and updates</p>
+        </div>
       </div>
     </div>
     <Stories/>

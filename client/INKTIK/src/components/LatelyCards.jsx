@@ -14,7 +14,7 @@ const LatelyCards = ({_id,title, description, summary, cover}) => {
     <div className={`w-full rounded-lg mb-5 `}>
         <div className='relative'>
         <Link to={`/admin/admin-blog/${_id}`}>
-        <img className="rounded-lg w-[95%] h-[16rem] sm:h-[27rem] md:h-[28rem] object-cover" src={cover} alt=""/>
+        <img className="rounded-xl w-[95%] h-[16rem] xs:h-[18rem] sm:h-[26rem] md:h-[28rem] object-cover" src={cover} alt=""/>
         </Link>
         <div className='absolute bottom-2 left-2'>
             
@@ -24,10 +24,10 @@ const LatelyCards = ({_id,title, description, summary, cover}) => {
        
         </div>
         <div className="p-2">
-            <a href="#">
-                <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2">{title}</h5>
-            </a>
-            <p className="font-normal text-gray-700 mb-3">{description}</p>
+            <Link to={`/admin/admin-blog/${_id}`}>
+                <h5 className="text-gray-900 font-bold text-xl tracking-tight mb-2  overflow-hidden text-ellipsis line-clamp-2 hover:underline">{title}</h5>
+            </Link>
+            <p className="font-normal text-gray-700 mb-3 overflow-hidden line-clamp-2 text-ellipsis">{description}</p>
             
         </div>
     </div>
