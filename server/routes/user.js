@@ -5,6 +5,8 @@ const jwt =  require('jsonwebtoken')
 require('dotenv').config()
 
 const userModel = require('../models/user')
+const SubscribersModel = require('../models/Subscribers')
+const ContactModel = require('../models/Contact')
 
 router.post('/signup', async (req, res) => {
     const { fullname, email, password } = req.body;
@@ -108,9 +110,11 @@ router.post('/login', async (req, res) => {
 
 router.get('/profile',async( req, res)=>{
         const {token} = req.cookies
+    
         if(!token){
             return res.status(401).json({message:"Please login to access this route"})
         }
+        
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded)=>{
             if(err){
                 return res.status(401).json({message:"Please login to access this route"})
@@ -125,5 +129,63 @@ router.post('/logout', (req, res)=>{
 })
 
 
+router.post('/subscriber',async(req, res)=>{
+    const {email} = req.body
+    try{
+        let subscriber = await SubscribersModel.create({
+            email
+        })
+        res.json({message: 'Subscriber added successfully', subscriber})
+    }
+    catch(err){
+        res.json({message: 'Failed', subscriber})
+    }
+})
+
+router.get('/get-fullname', async (req, res) => {
+    const { token } = req.cookies;
+
+    if (!token) {
+        return res.status(401).json({ message: "Unauthorized, please log in" });
+    }
+
+    try {
+        // Verify token and get user's ID from it
+        jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ message: "Invalid token, please log in again" });
+            }
+
+            // Find the user by the ID extracted from the token
+            const user = await userModel.findById(decoded.id);
+            if (!user) {
+                return res.status(404).json({ message: "User not found" });
+            }
+
+            // Send the user's full name in the response
+            res.status(200).json({ fullname: user.fullname, email:user.email });
+        });
+    } catch (error) {
+        console.error("Error fetching full name:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+
+router.post('/contact', async(req, res)=>{
+    const {name, email, message} = req.body
+    try{
+        let contact = await ContactModel.create({
+            name, email, message
+        })
+        res.status(200).json({message: 'Contact added successfully', contact})
+    }catch(err){
+        res.send(err)
+    }
+})
+
+
 
 module.exports = router;
+
+

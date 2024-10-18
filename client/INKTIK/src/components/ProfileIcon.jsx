@@ -3,11 +3,13 @@ import { profileicon } from '../assets';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { userContext } from '../contexts/UserContext';
+import toast from 'react-hot-toast';
 
 const ProfileIcon = () => {
   const dropdownRef = useRef(null); 
   const avatarButtonRef = useRef(null); 
-
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('') 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   // Toggle dropdown
@@ -42,12 +44,29 @@ const ProfileIcon = () => {
         if (response.status === 200) {
             
             console.log("Logout successful:", response.data);
+            toast.success('Logout')
             setUserInfo(false);
         }
     } catch (error) {
         console.error('Error logging out:', error);
     }
   }
+
+  useEffect(() => {
+    const fetchFullName = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/user/get-fullname', {
+          withCredentials: true,
+        });
+        setName(response.data.fullname);
+        setEmail(response.data.email)
+      } catch (error) {
+        console.error('Error fetching full name:', error);
+      }
+    };
+  
+    fetchFullName();
+  }, []);
 
 
   return (
@@ -70,8 +89,8 @@ const ProfileIcon = () => {
           className="absolute right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
         >
           <div className="px-4 py-3 text-sm text-gray-900">
-            <div>Bonnie Green</div>
-            <div className="font-medium truncate">name@flowbite.com</div>
+            <div>{name}</div>
+            <div className="font-medium truncate">{email}</div>
           </div>
           <ul className="py-2 text-sm text-gray-700">
             <li>

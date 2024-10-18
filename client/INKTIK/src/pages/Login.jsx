@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const {userInfo, setUserInfo} = useContext(userContext)
   const navigate = useNavigate()
+
   const login = async (e) => {
     e.preventDefault(); 
     try {
@@ -22,7 +23,10 @@ const Login = () => {
   
       setUserInfo(response.data);
       toast.success('Login successful!');
-  
+      
+      setEmail('')
+      setPassword('')
+
       if (response.data.role === 'admin') {
         navigate('/admin-panel');
       } else {
@@ -40,7 +44,7 @@ const Login = () => {
   
   return (
     
-    <div className='h-screen w-full '>
+    <div className='h-screen w-full overflow-hidden'>
     <div className='flex w-full h-full relative'>
       {/* Left Section with Image */}
       <div className="left md:w-[30%] hidden md:block h-full">
@@ -76,7 +80,7 @@ const Login = () => {
               />
              
               <button className='bg-[#000] text-white py-2 rounded-[2.2rem]  mt-4 px-5'>
-                Send message
+                Login
               </button>
             </form>
           </div>

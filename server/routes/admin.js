@@ -27,7 +27,7 @@ router.patch('/pending/:id', async (req, res) => {
 
 
 router.post('/admin-blogs', upload.single('image'), async (req, res) => {
-    const { token } = req.cookies;  // Ensure the client is sending cookies properly
+    const { token } = req.cookies;  
 
     if (!token) {
         console.log('No token provided');
@@ -56,8 +56,9 @@ router.post('/admin-blogs', upload.single('image'), async (req, res) => {
         
         res.status(201).json({ message: 'Blog created successfully', Adminblog });
     } catch (err) {
-        res.status(500).json({ message: 'Error creating blog', error: err.message });
-    }
+      console.error('Error creating blog:', err); 
+      res.status(500).json({ message: 'Error creating blog', error: err.message });
+  }
 })
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import SideMenu from './SideMenu';
 import Stories from './Stories';
@@ -6,8 +6,38 @@ import Lately from './Lately';
 import LatelyCards from './LatelyCards';
 import Recomended from './Recomended';
 import Footer from './Footer';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Hero = () => {
+
+    let [email, setEmail] = useState('')
+    let [error, setError  ] = useState(false)
+    const subscribe = (e) => {
+      e.preventDefault();
+
+      try{
+        if(email.length > 0){
+          let response = axios.post('http://localhost:4000/user/subscriber', { email },{
+            withCredentials:true
+          })
+        setEmail(response.data)
+        toast.success('You have been subscribed')
+          
+        setEmail('')
+        }
+        else{
+          toast.error('Please enter the valid email')
+          setError(true)
+        }
+      }catch(err){
+        console.log(err)
+        toast.error('failed')
+      }
+      
+    };
+
+
   return (
     <>
     <Header/>
@@ -23,9 +53,11 @@ const Hero = () => {
 
         
         <div className='flex items-center gap-4 '>
-        <form className="mt-10 md:mx-0 max-w-md  rounded-full bg-gray-200  flex focus-within:border-gray-300 md:w-max-[60%]">
+        <form onSubmit={subscribe} className="mt-10 md:mx-0 max-w-md  rounded-full bg-gray-200  flex focus-within:border-gray-300 md:w-max-[60%]">
           <input 
-            type="text"
+          value={email}
+          onChange={(e)=>setEmail(e.target.value)}
+            type='email'
             placeholder="Your email address"
             className="bg-transparent w-full focus:outline-none pr-4 border-0 text-xl md:text-lg focus:ring-0 px-6 py-4"
             name="topic"
@@ -35,10 +67,15 @@ const Hero = () => {
           >
             Subscribe
           </button>
-          
+        
         </form>
+      
         <p className='hidden md:block w-96 mt-10'>Get the email newsletter and unlock access to members-only content and updates</p>
         </div>
+         
+          {error?<p className='mt-4 text-[.75rem] md:text-sm bg-gray-200  px-5 py-1 rounded-[2rem] whitespace-nowrap  w-64 '> There was an error sending the email </p>: ''}
+          
+          
       </div>
     </div>
     <Stories/>

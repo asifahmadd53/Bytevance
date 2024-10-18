@@ -29,5 +29,7 @@ const AdminBlogsSchema = new mongoose.Schema({
 // Create the blog model
 const AdminBlogs = mongoose.model('adminblogs', AdminBlogsSchema);
 
+
+
 // Export the model
 module.exports = AdminBlogs;

@@ -33,7 +33,7 @@ const Signup = () => {
   };
 
   return (
-    <div className='h-screen w-full'>
+    <div className='h-screen w-full overflow-hidden'>
       <div className='flex w-full h-full relative'>
         {/* Left Section with Image */}
         <div className="left md:w-[30%] hidden md:block h-full">

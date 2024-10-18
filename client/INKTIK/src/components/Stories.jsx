@@ -34,7 +34,14 @@ const Stories = () => {
     <div className='min-h-screen w-full mt-32 px-2 md:px-10'>
       <hr className='w-[90%] m-auto border-t border-[#3736366c]' />
 
-      <div className='flex justify-end px-10 pt-10 gap-3'>
+     <div className='flex items-center justify-between px-5 pt-5'>
+
+      <h1> 
+      Get started with our best stories
+      </h1>
+
+
+        <div className='flex justify-end gap-3'>
         <div className='w-6 cursor-pointer' id="prevSlide" onClick={handlePrev}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path fill="none" stroke="black" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19.5 12h-15m0 0l5.625-6M4.5 12l5.625 6" />
@@ -46,10 +53,11 @@ const Stories = () => {
           </svg>
         </div>
       </div>
+     </div>
 
       <div
       ref={swiperRef}
-      className='flex gap-4 px-4 overflow-hidden scrollbar-hide my-6'
+      className='flex gap-4 px-4  overflow-auto my-6 hide-scrollbar'
       style={{ scrollSnapType: 'x mandatory' }}
     >
       {Array.isArray(blogs) && blogs.length > 0 ? ( // Check if blogs is an array and has items

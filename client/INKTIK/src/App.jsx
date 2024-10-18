@@ -16,6 +16,7 @@ import BlogsByAdmin from './pages/BlogsByAdmin';
 import ApprovedBlogs from './components/ApprovedBlogs';
 import BlogPageUser from './pages/BlogPageUser';
 import { Toaster } from 'react-hot-toast';
+import HomeLayout from './HomeLayout';
 
 const App = () => {
   return (
@@ -26,13 +27,18 @@ const App = () => {
         <Route path='/' element={<Hero/>}/> 
          <Route path='/login' element={<Login/>}/>
          <Route path='/signup' element={<Signup/>}/>
-         <Route path='/pricing' element={<PricingCard/>}/>
          <Route path='/contact' element={<Contact/>}/>
          <Route path='/create-blog' element={<CreateBlogs/>}/>
-         <Route path='/blog/blog/:id' element={<BlogPage/>}/>
-         <Route path='/blog/blog-user-page/:id' element={<BlogPageUser/>}/>
          
-         <Route path='/admin/admin-blog/:id' element={<BlogPageUser/>}/>
+
+        <Route path='/' element={<HomeLayout/>}>
+        <Route path='pricing' element={<PricingCard/>}/>
+        <Route path='blog/blog/:id' element={<BlogPage/>}/>
+         <Route path='blog/blog-user-page/:id' element={<BlogPageUser/>}/>
+         
+         <Route path='admin/admin-blog/:id' element={<BlogPageUser/>}/>
+        </Route>
+
          
 
 

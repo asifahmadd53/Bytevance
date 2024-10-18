@@ -17,20 +17,29 @@ const Story = ({_id,author, cover, title, description, createdAt}) => {
 
 
     
-  <div class="relative flex flex-col my-6 xs:w-56 sm:w-72 md:w-80 lg:w-96 shadow-sm  rounded-lg w-80 transition-all duration-700 ">
+  <div class="relative flex flex-col my-6 xs:w-56 sm:w-72 md:min-w-80 lg:w-96 shadow-sm  rounded-lg min-w-80 transition-all duration-700 ">
 <Link to={`/blog/blog-user-page/${_id}`}>
-<div class="relative h-96 xs:h-60 sm:h-80 md:h-[23rem] lg:h-[27rem]  text-white m-2.5 rounded-md">
-      <img className='h-full w-full rounded-xl object-cover' src={cover}/>
+<div class="relative h-96 xs:h-60 sm:h-80 md:h-[22rem] lg:h-[27rem]  text-white m-2.5 rounded-md">
+      <img className='h-full w-full  rounded-xl object-cover' src={cover}/>
     </div>
 </Link>
 
    
-    <div class="p-4">
+    <div className="p-4">
       
-      <h6 class="mb-2 text-slate-800 text-xl font-semibold overflow-hidden text-ellipsis line-clamp-2 hover:underline cursor-pointer">
-    {title}
-      </h6>
-      <p class="text-slate-600 leading-normal font-light overflow-hidden text-ellipsis line-clamp-2">
+    <h6
+  className="mb-2 text-slate-800 text-xl font-semibold truncate hover:underline cursor-pointer tracking-wider overflow-hidden"
+  
+>
+  {title}
+</h6>
+
+
+
+
+
+
+      <p class="text-slate-600 leading-normal font-light overflow-hidden text-ellipsis ">
        {description}
       </p>
     </div>

@@ -60,7 +60,9 @@ const Header = () => {
                                 </li>
                             ))}
                             <div className="flex items-center gap-1">
-                            {userInfo && <ProfileIcon />}
+                            {userInfo ? <ProfileIcon /> :  <button className="border transition-colors duration-300 ease-in-out px-6 py-2 hidden md:block rounded-[3rem] bg-black text-white text-xl hover:bg-[#314bff]">
+                                    <Link to='/signup'>Join</Link>
+                                </button>}
                                 <div onClick={toggleSearch} ref={searchRef} className="md:border md:flex md:items-center md:bg-[#efeef0] cursor-pointer rounded-[3rem]">
                                     
                                 </div>
@@ -69,9 +71,7 @@ const Header = () => {
                                         <path fill="none" stroke="black" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 17h8m-8-5h14m-8-5h8"/>
                                     </svg>
                                 </div>
-                                <button className="border transition-colors duration-300 ease-in-out px-6 py-2 hidden md:block rounded-[3rem] bg-black text-white text-xl hover:bg-[#314bff]">
-                                    <Link to='/signup'>Join</Link>
-                                </button>
+                               
                             </div>
                             
                         </ul>

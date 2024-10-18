@@ -1,7 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { logo3 } from '../assets'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 const Footer = () => {
+
+  let [email, setEmail] = useState('')
+    let [error, setError  ] = useState(false)
+    const subscribe = (e) => {
+      e.preventDefault();
+
+      try{
+        if(email.length > 0){
+          let response = axios.post('http://localhost:4000/user/subscriber', { email },{
+            withCredentials:true
+          })
+        setEmail(response.data)
+        toast.success('You have been subscribed')
+          
+        setEmail('')
+        }
+        else{
+          toast.error('Please enter the valid email')
+          setError(true)
+        }
+      }catch(err){
+        console.log(err)
+        toast.error('failed')
+      }
+      
+    };
   return (
     
 <footer className="bg-white">
@@ -11,9 +39,11 @@ const Footer = () => {
       Subscribe to <span className='font-bold'>new <br /> posts</span>
       </strong>
 
-      <form className="mt-10 md:mt-0 md:mx-0 max-w-md  rounded-full bg-gray-200  flex focus-within:border-gray-300 md:w-max-[60%] mb-10">
+      <form onSubmit={subscribe} className="mt-10 md:mt-0 md:mx-0 max-w-md  rounded-full bg-gray-200  flex focus-within:border-gray-300 md:w-max-[60%] mb-10">
           <input 
-            type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+            type='email'
             placeholder="Your email address"
             className="bg-transparent w-full focus:outline-none pr-4 border-0 text-xl md:text-lg focus:ring-0 px-6 py-4"
             name="topic"
@@ -27,7 +57,6 @@ const Footer = () => {
         </form>
     </div>
     <hr className='w-[90%] m-auto border-t border-[#363535d8] ' />
-
     <section class="pt-16 pb-7 ">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-24 pb-14 border-b-2 border-gray-200">
