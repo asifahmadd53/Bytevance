@@ -9,7 +9,7 @@ export function UserContextProvider({ children }) {
     return savedUserInfo ? JSON.parse(savedUserInfo) : {};
   });
 
-  // Save userInfo to localStorage whenever it changes
+  
   useEffect(() => {
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
   }, [userInfo]);

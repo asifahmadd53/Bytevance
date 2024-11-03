@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const PricingCard = () => {
   const [billingType, setBillingType] = useState('monthly');
@@ -21,7 +22,7 @@ const PricingCard = () => {
   };
 
   return (
-    <div className="sm:flex sm:flex-col sm:align-center p-10">
+    <div className="sm:flex sm:flex-col  sm:align-center p-10">
       <div className="relative self-center bg-slate-200 rounded-lg p-0.5 flex">
         <button
           type="button"
@@ -47,23 +48,23 @@ const PricingCard = () => {
         </button>
       </div>
 
-      <div className="mt-12 space-y-3 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-6 md:max-w-5xl md:mx-auto xl:grid-cols-3">
+      <div className="mt-12 space-y-3 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-6 md:max-w-5xl md:mx-auto xl:grid-cols-3">
         {/* Starter Plan */}
         <div className="border border-slate-200 rounded-lg shadow-sm divide-y divide-slate-200">
           <div className="p-6">
             <h2 className="text-xl leading-6 font-bold text-slate-900">Starter</h2>
-            <p className="mt-2 text-base text-slate-700 leading-tight">
-              For new makers who want to fine-tune and test an idea.
+            <p className="mt-2  leading-tight text-2xl">
+            Sign up now to be notified of new content and support Basho, help keep this site independent.
             </p>
             <p className="mt-8">
-              <span className="text-4xl font-bold text-slate-900 tracking-tighter">
+              <span className="text-5xl font-bold text-slate-900 tracking-tighter">
                 ${pricing[billingType].starter}
               </span>
-              <span className="text-base font-medium text-slate-500">/{billingType === 'monthly' ? 'mo' : 'yr'}</span>
+              <span className="text-2xl font-medium text-slate-500">/{billingType === 'monthly' ? 'mo' : 'yr'}</span>
             </p>
-            <a href="/sign-up" className="mt-8 block w-full bg-slate-900 rounded-md py-2 text-sm font-semibold text-white text-center">
-              Join as a Starter
-            </a>
+            <Link href="/sign-up" className="mt-8 block w-full bg-slate-900 rounded-[2rem] py-4  text-lg font-semibold text-white text-center">
+              Sign up for free
+            </Link>
           </div>
           <div className="pt-6 pb-8 px-6">
             {/* What's Included */}
@@ -80,7 +81,20 @@ const PricingCard = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12l5 5L20 7" />
                 </svg>
-                <span className="text-base text-slate-700">1 landing page included</span>
+                <span className="text-base text-slate-700">Full access to posts for subscribers</span>
+              </li>
+              <li className="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 h-5 w-5 text-green-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12l5 5L20 7" />
+                </svg>
+                <span className="text-base text-slate-700">Weekly email newsletter</span>
               </li>
               {/* Add more features */}
             </ul>
@@ -90,19 +104,19 @@ const PricingCard = () => {
         {/* Superior Plan */}
         <div className="border border-slate-200 rounded-lg shadow-sm divide-y divide-slate-200">
           <div className="p-6">
-            <h2 className="text-xl leading-6 font-bold text-slate-900">Superior</h2>
-            <p className="mt-2 text-base text-slate-700 leading-tight">
-              For creators with multiple ideas who want to efficiently test and refine them.
+            <h2 className="text-xl leading-6 font-bold text-slate-900">Premium</h2>
+            <p className="mt-2 text-2xl">
+            Get access to the library of paid-members only posts.
             </p>
             <p className="mt-8">
-              <span className="text-4xl font-bold text-slate-900 tracking-tighter">
+              <span className="text-5xl font-bold text-slate-900 tracking-tighter">
                 ${pricing[billingType].superior}
               </span>
-              <span className="text-base font-medium text-slate-500">/{billingType === 'monthly' ? 'mo' : 'yr'}</span>
+              <span className="text-2xl font-medium text-slate-500">/{billingType === 'monthly' ? 'mo' : 'yr'}</span>
             </p>
-            <a href="/sign-up" className="mt-8 block w-full bg-slate-900 rounded-md py-2 text-sm font-semibold text-white text-center">
-              Join as a Superior
-            </a>
+            <Link  className="mt-8 block w-full bg-slate-900 rounded-[2rem] py-5 text-sm font-semibold text-white text-center">
+              Start 7-day free trial
+            </Link>
           </div>
           <div className="pt-6 pb-8 px-6">
             <h3 className="text-sm font-bold text-slate-900 tracking-wide uppercase">What's included</h3>
@@ -120,6 +134,34 @@ const PricingCard = () => {
                 </svg>
                 <span className="text-base text-slate-700">5 landing pages included</span>
               </li>
+              <li className="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 h-5 w-5 text-green-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12l5 5L20 7" />
+                </svg>
+                <span className="text-base text-slate-700">Weekly email newsletter
+                </span>
+              </li>
+              <li className="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 h-5 w-5 text-green-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12l5 5L20 7" />
+                </svg>
+                <span className="text-base text-slate-700">Support indie publishing
+                </span>
+              </li>
               {/* Add more features */}
             </ul>
           </div>
@@ -128,19 +170,18 @@ const PricingCard = () => {
         {/* Shipper Plan */}
         <div className="border border-slate-200 rounded-lg shadow-sm divide-y divide-slate-200">
           <div className="p-6">
-            <h2 className="text-xl leading-6 font-bold text-slate-900">Shipper</h2>
-            <p className="mt-2 text-base text-slate-700 leading-tight">
-              For productive shippers who want to work more efficiently.
-            </p>
+            <h2 className="text-xl leading-6 font-bold text-slate-900">Premium Plus</h2>
+            <p className="mt-2 text-2xl ">
+            Get access to everything.            </p>
             <p className="mt-8">
-              <span className="text-4xl font-bold text-slate-900 tracking-tighter">
+              <span className="text-5xl font-bold text-slate-900 tracking-tighter">
                 ${pricing[billingType].shipper}
               </span>
-              <span className="text-base font-medium text-slate-500">/{billingType === 'monthly' ? 'mo' : 'yr'}</span>
+              <span className="text-2xl font-medium text-slate-500">/{billingType === 'monthly' ? 'mo' : 'yr'}</span>
             </p>
-            <a href="/sign-up" className="mt-8 block w-full bg-slate-900 rounded-md py-2 text-sm font-semibold text-white text-center">
+            <Link href="/sign-up" className="mt-8 block w-full bg-slate-900 rounded-[2rem] py-5 text-sm font-semibold text-white text-center">
               Join as a Shipper
-            </a>
+            </Link>
           </div>
           <div className="pt-6 pb-8 px-6">
             <h3 className="text-sm font-bold text-slate-900 tracking-wide uppercase">What's included</h3>
@@ -156,7 +197,49 @@ const PricingCard = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12l5 5L20 7" />
                 </svg>
-                <span className="text-base text-slate-700">20 landing pages included</span>
+                <span className="text-base text-slate-700">Full access to Premium Plus posts</span>
+              </li>
+              <li className="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 h-5 w-5 text-green-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12l5 5L20 7" />
+                </svg>
+                <span className="text-base text-slate-700">Members-only Q&A
+                </span>
+              </li>
+              <li className="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 h-5 w-5 text-green-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12l5 5L20 7" />
+                </svg>
+                <span className="text-base text-slate-700">Weekly email newsletter
+                </span>
+              </li>
+              <li className="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 h-5 w-5 text-green-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12l5 5L20 7" />
+                </svg>
+                <span className="text-base text-slate-700">Support indie publishing
+                </span>
               </li>
               {/* Add more features */}
             </ul>

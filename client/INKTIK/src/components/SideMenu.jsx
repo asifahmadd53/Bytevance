@@ -13,6 +13,7 @@ const SideMenu = () => {
     const {userInfo, setUserInfo} = useContext(userContext)
 
 
+
     const menuRef = useRef(null)
 
     useEffect(() => {
@@ -31,17 +32,32 @@ const SideMenu = () => {
         fetchUserData();
     }, []);
 
- 
-    
+    useEffect(()=>{
+        const handleClickOutside = (event)=>{
+            if(menuRef.current && !menuRef.current.contains(event.target)){
+                clickOnMenu()
+            }
+        }
+        if (menu) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
 
-    
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+        
+
+    },[menu,clickOnMenu])
+   
 
 
   return (
     <div ref={menuRef} className={`bg-[#000000] fixed w-80 h-[100vh]  top-0 left-0 transition-all duration-700 p-5 z-50 ${menu ? 'translate-x-0 ' : '-translate-x-full'}`}>
         <nav>
             <div className='flex items-center justify-between'>
-            <h1 className='text-3xl item-center text-white logo'>Bytevance</h1>
+            <Link to={'/'}>
+            <h1 onClick={()=> clickOnMenu(!setMenu)} className='text-3xl item-center text-white logo cursor-pointer'>Bytevance</h1>
+            </Link>
             <svg onClick={()=>clickOnMenu(!setMenu)} className='w-10' xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 21 21"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" d="m15.5 15.5l-10-10zm0-10l-10 10"/></svg>
             </div>
            
@@ -52,7 +68,7 @@ const SideMenu = () => {
                {navLinks.map((item, index  )=>{
                 return(
                     <Link to={`${item.id}`} key={index}>
-                    <li  className='flex items-center gap-1 hover:underline hover:translate-x-2 transition-all duration-500'>
+                    <li onClick={()=>clickOnMenu(!setMenu)} className='flex items-center gap-1 hover:underline hover:translate-x-2 transition-all duration-500'>
                     <span className='w-8 h-8'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" fill-rule="evenodd" d="M9 6.75a.75.75 0 0 1 0-1.5h9a.75.75 0 0 1 .75.75v9a.75.75 0 0 1-1.5 0V7.81L6.53 18.53a.75.75 0 0 1-1.06-1.06L16.19 6.75z" clip-rule="evenodd"/></svg></span>{item.name}
                 </li>
                     </Link>

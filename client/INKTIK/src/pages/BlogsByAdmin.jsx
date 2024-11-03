@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loginImg } from "../assets";
+import { blogimg, loginImg, signupimg } from "../assets";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -50,7 +50,7 @@ const BlogsByAdmin = () => {
           {/* Left Section with Image */}
           <div className="left w-[20%] hidden md:block sticky top-0 h-screen">
             <img
-              src={loginImg}
+              src={blogimg}
               className="object-cover h-full w-full"
               alt="Signup Background"
             />

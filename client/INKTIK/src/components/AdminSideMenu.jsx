@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { AdminSideMenuContext } from '../contexts/AdminSideMenuContext'
 import { Link } from 'react-router-dom'
+import { logo3 } from '../assets'
 
 const AdminSideMenu = () => {
 
@@ -8,16 +9,16 @@ const AdminSideMenu = () => {
 
   return (
     <div
-                className={`fixed top-0 left-0 bg-shadow-2xl w-80 md:w-[25rem] h-screen overflow-y-auto transform transition-all duration-700 bg-[#191919] z-50
+                className={`fixed top-0 left-0 bg-shadow-2xl w-80 md:w-[25rem] h-screen overflow-y-auto transform transition-all duration-700 bg-[#4f46e5] z-20 pt-20
                     ${open ? 'translate-x-0' : '-translate-x-full'}
                 }
             `}>
                 <div className='flex items-center justify-between p-3 px-6 '>
                     <div className='relative flex items-center gap-2'>
-                        <div className='bg-[#B18B5E] rounded-full h-11 w-11 items-center flex justify-center'>
-                            <img className='absolute w-10 top-0'  alt="Logo" />
-                        </div>
-                        <h1 className='text-lg logo text-white'>Abita</h1>
+                        
+                            <img src={logo3} className='w-32 mix-blend-color-burn z-30 '  alt="Logo" />
+                        
+                        
                     </div>
                     <div onClick={()=> setOpen((prev)=> !prev)} className='rounded-full h-11 w-11 items-center flex justify-center'>
                         <svg className='w-8 h-8 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">

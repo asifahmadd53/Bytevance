@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { profileicon } from '../assets';
+import { admin, profileicon } from '../assets';
 
 const BlogPageUser = () => {
   const [blogInfo, setBlogInfo] = useState(null);
   const { id } = useParams();
   const location = useLocation();
   
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [id]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   useEffect(() => {
     const apiEndpoint = location.pathname.includes('/admin-blog')
@@ -79,11 +79,16 @@ return (
           </h2>
           <div className="flex items-center gap-4 py-4 pt-5">
             <img
-              className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-              src={profileicon}
+              className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-cover object-top"
+               src={!blogInfo ? admin : profileicon}
               alt="Profile Avatar"
             />
-            <h1 className=''>{blogInfo.author?.fullname} <br />
+            <h1 className=''>
+             
+              {blogInfo?.author?.fullname ? blogInfo.author.fullname: 'Admin'}
+              
+              
+              <br />
             <p className="text-sm text-gray-500">
       {new Date(blogInfo.createdAt).toLocaleDateString(undefined, {
         year: 'numeric',
@@ -100,7 +105,7 @@ return (
         </div>
       
 
-        <div className="sm:w-[40%] md:w-[30%] h-[33rem] xs:h-[43rem] md:h-[30rem] sm:h-[25rem]">
+        <div className="sm:w-[40%] md:w-[30%] h-[33rem] xs:h-[37rem] md:h-[30rem] sm:h-[25rem]">
           <img
             src={blogInfo.cover}
             alt="Blog visual"
@@ -153,12 +158,12 @@ return (
 
         <aside className="w-full lg:w-1/4 m-auto mt-12 max-w-screen-sm lg:mr-10">
           <div className="p-4 border-t border-b md:border md:rounded">
-            <div className="flex py-2 ">
-              <img
-                src="https://randomuser.me/api/portraits/men/97.jpg"
-                alt="Editor Mike Sullivan"
-                className="h-10 w-10 rounded-full mr-2 object-cover"
-              />
+            <div className="flex py-2 gap-4 items-center">
+            <img
+              className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-cover object-top"
+               src={!blogInfo ? admin : profileicon}
+              alt="Profile Avatar"
+            />
               <div>
                 <p className="font-extrabold text-gray-700 text-sm ">
                   {blogInfo.author?.fullname}

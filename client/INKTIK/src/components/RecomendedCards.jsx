@@ -9,7 +9,7 @@ const RecomendedCards = ({ _id, title, cover, description, summary }) => {
         <div className="relative">
           <Link to={`/blog/blog-user-page/${_id}`}>
             <img
-              className="rounded-2xl w-full h-[12rem] md:h-[14rem] object-cover"
+              className="hover:-translate-y-1 duration-500 transition-all rounded-2xl w-full h-[12rem] md:h-[14rem] object-cover"
               src={cover}
               alt="Blog Cover"
             />

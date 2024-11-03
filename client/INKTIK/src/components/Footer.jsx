@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { logo3 } from '../assets'
+import { hassan, logo3, saad, zain2 } from '../assets'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
@@ -35,7 +35,7 @@ const Footer = () => {
 <footer className="bg-white">
   <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
     <div className=" md:w-full px-6 md:flex md:justify-between md:items-center">
-      <strong className="block text-5xl md:text-6xl text-gray-900">
+      <strong className="block text-4xl xs:text-5xl md:text-6xl text-gray-900">
       Subscribe to <span className='font-bold'>new <br /> posts</span>
       </strong>
 
@@ -49,7 +49,7 @@ const Footer = () => {
             name="topic"
           />
           <button
-            className="flex flex-row items-center justify-center min-w-[160px] px-6  rounded-full border disabled:cursor-not-allowed disabled:opacity-50  ease-in-out  text-2xl bg-black text-white font-medium tracking-wide border-transparent py-4  md:h-auto hover:bg-[#314bff] transition-colors duration-300"
+            className="flex flex-row items-center justify-center min-w-[160px] px-6  rounded-full border disabled:cursor-not-allowed disabled:opacity-50  ease-in-out  text-2xl bg-black text-white font-medium tracking-wide border-transparent py-4  md:h-auto hover:text-white hover:bg-[#314bff]  transition-colors duration-300"
           >
             Subscribe
           </button>
@@ -70,11 +70,11 @@ const Footer = () => {
             </p>
             <div class="flex flex-col min-[470px]:flex-row max-[470px]:gap-4 items-center max-[470px]:justify-center">
               <div class="flex items-center">
-                <img src="https://pagedone.io/asset/uploads/1711781221.png" alt="" class="relative "/>
-                <img src="https://pagedone.io/asset/uploads/1711781231.png" alt="" class="relative -translate-x-2 z-10"/>
-                <img src="https://pagedone.io/asset/uploads/1711781245.png" alt="" class="relative -translate-x-4 z-20"/>
+                <img className='w-10 h-10 object-cover object-top rounded-full' src={saad} alt="" />
+                <img className='w-10 h-10 object-cover object-top rounded-full'  src={zain2} alt=""/>
+                <img className='w-10 h-10 object-cover object-top rounded-full'  src={hassan} alt=""/>
               </div>
-              <p class="text-gray-500 text-base font-normal"><span class="text-gray-900 font-medium">1K </span>Members
+              <p class="text-gray-500 text-base font-normal"><span class="text-gray-900 font-medium pl-3">1K </span>Members
                 Join</p>
             </div>
           </div>
@@ -85,19 +85,19 @@ const Footer = () => {
             <h6 class="text-lg font-medium text-gray-900 mb-7 max-[470px]:text-center">About</h6>
             <ul class="flex flex-col max-[470px]:items-center gap-2">
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Style Guide</a>
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">Style Guide</a>
               </li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Features</a>
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-indigo-600">Features</a>
               </li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Pricing</a>
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">Pricing</a>
               </li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Contact 
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">Contact 
                   </a></li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">404 
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">404 
                   </a></li>
             </ul>
           </div>
@@ -105,15 +105,15 @@ const Footer = () => {
             <h6 class="text-lg font-medium text-gray-900 max-[470px]:text-center mb-7">Features</h6>
             <ul class="flex flex-col max-[470px]:items-center gap-2">
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">
                   Demos</a></li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Light version</a></li>
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">Light version</a></li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Color version
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900focus-within:outline-0 focus-within:text-gray-900">Color version
                   </a></li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Partial Verison 
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">Partial Verison 
                   </a></li>
             </ul>
           </div>
@@ -121,19 +121,19 @@ const Footer = () => {
             <h6 class="text-lg font-medium text-gray-900 max-[470px]:text-center mb-7">Membership</h6>
             <ul class="flex flex-col max-[470px]:items-center gap-2">
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Account</a>
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">Account</a>
               </li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Membership
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">Membership
                   </a></li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Suscribe</a>
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900focus-within:outline-0 focus-within:text-gray-900">Suscribe</a>
               </li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Tags
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900focus-within:outline-0 focus-within:text-gray-900">Tags
                   </a></li>
               <li><a href="javascript:;"
-                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-indigo-600 focus-within:outline-0 focus-within:text-indigo-600">Authors
+                  class="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-gray-900 focus-within:outline-0 focus-within:text-gray-900">Authors
                   </a></li>
             </ul>
           </div>
@@ -143,13 +143,13 @@ const Footer = () => {
         <p class="font-normal text-sm text-gray-500">©<a href="https://pagedone.io/">bytvance</a>2024, All rights reserved.</p>
         <ul class="flex items-center gap-9">
           <li><a href="javascript:;"
-              class="text-gray-500 text-sm font-normal transition-all duration-300 hover:text-indigo-600 focus-within:text-indigo-600 focus-within:outline-0">Terms</a>
+              class="text-gray-500 text-sm font-normal transition-all duration-300 hover:text-gray-900 focus-within:text-gray-900 focus-within:outline-0">Terms</a>
           </li>
           <li><a href="javascript:;"
-              class="text-gray-500 text-sm font-normal transition-all duration-300 hover:text-indigo-600 focus-within:text-indigo-600 focus-within:outline-0">Privacy</a>
+              class="text-gray-500 text-sm font-normal transition-all duration-300 hover:text-gray-900 focus-within:text-gray-900 focus-within:outline-0">Privacy</a>
           </li>
           <li><a href="javascript:;"
-              class="text-gray-500 text-sm font-normal transition-all duration-300 hover:text-indigo-600 focus-within:text-indigo-600 focus-within:outline-0">Cookies</a>
+              class="text-gray-500 text-sm font-normal transition-all duration-300 hover:text-gray-900 focus-within:text-gray-900 focus-within:outline-0">Cookies</a>
           </li>
         </ul>
         <div class="flex items-center gap-4">

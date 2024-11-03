@@ -34,22 +34,22 @@ const Header = () => {
 
         fetchUserProfile();
     }, []);
-
-
     return (
         <>
-            <header className="relative w-full">
+            <header className="relative w-full ">
                 <div ref={searchRef} className={`transition-all duration-500 w-full bg-white h-20 absolute border  p-3 ${search ? 'translate-y-0' : '-translate-y-full'}`}>
                     <input type='text' className='w-[80%] h-full text-xl md:text-3xl px-5' placeholder="Search"/>
                 </div>
-                
-                <nav className="flex items-center justify-between p-4  w-full z-50">
+                <nav className="flex items-center justify-between px-5 pt-7 pb-4 md:px-14 lg:px-16 w-full z-50 ">
                 <div className="logo inline-block">
+  <Link to={'/'}>
   <img
+  
     className="w-32 md:w-36 xl:w-36 mix-blend-color-burn object-contain bg-none"
     src={logo3}
     alt=""
   />
+  </Link>
 </div>
 
                     <div>

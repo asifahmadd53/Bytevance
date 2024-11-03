@@ -62,20 +62,20 @@ const Login = () => {
                 onChange={(e)=>setName(e.target.value)}
                   type="text" 
                   placeholder="Your name" 
-                  className='p-4 w-full border outline-none rounded-[2rem] bg-gray-200 text-sm px-4 mb-3'
+                  className='p-4 w-[90%] sm:w-full text-lg border outline-none rounded-[2rem] bg-gray-200 px-5 mb-4 '
                 />
                 <input 
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}
                   type="text" 
                   placeholder="Your email address" 
-                  className='p-4 w-full border outline-none rounded-[2rem] bg-gray-200 text-sm px-4 mb-3'
+                  className='p-4 w-[90%] sm:w-full text-lg  border outline-none rounded-[2rem] bg-gray-200  px-5 mb-4'
                 />
                 <div className="w-full">
                   <textarea 
                   value={message}
                   onChange={(e)=>setMessage(e.target.value)}
-                    className="py-4 resize-none px-4 block w-full border-transparent focus:outline-none rounded-[1.5rem] text-sm bg-gray-200" 
+                    className="py-4 w-[90%] sm:w-full text-lg resize-none px-4 block  border-transparent focus:outline-none rounded-[1rem]  bg-gray-200 ml-1" 
                     rows="4" 
                     placeholder="This is a textarea placeholder">
                   </textarea>

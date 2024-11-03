@@ -3,7 +3,7 @@ import Hero from './components/Hero';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Stories from './components/Stories';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import PricingCard from './components/PricingCard';
 import Contact from './pages/Contact';
 import CreateBlogs from './pages/CreateBlogs';
@@ -17,8 +17,30 @@ import ApprovedBlogs from './components/ApprovedBlogs';
 import BlogPageUser from './pages/BlogPageUser';
 import { Toaster } from 'react-hot-toast';
 import HomeLayout from './HomeLayout';
+import AuthorInfo from './pages/AuthorInfo';
+import AuthRoute from './components/AuthRoute';
+import { useEffect, useState } from 'react';
+
+
 
 const App = () => {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const checkAuth = async () => {
+        const res = await fetch('/auth/check-auth', { credentials: 'include' });
+        if (res.ok) {
+            setIsAuthenticated(true);
+        } else {
+            setIsAuthenticated(false);
+        }
+    };
+
+    useEffect(() => {
+        checkAuth(); // Check authentication status on component mount
+    }, []);
+
+
   return (
    <>
    <Toaster /> 
@@ -28,8 +50,13 @@ const App = () => {
          <Route path='/login' element={<Login/>}/>
          <Route path='/signup' element={<Signup/>}/>
          <Route path='/contact' element={<Contact/>}/>
-         <Route path='/create-blog' element={<CreateBlogs/>}/>
-         
+
+
+         <Route 
+         path='/create-blog' 
+         element = {isAuthenticated ? <CreateBlogs/> : <Navigate to="/login"/>}
+        />
+
 
         <Route path='/' element={<HomeLayout/>}>
         <Route path='pricing' element={<PricingCard/>}/>
@@ -37,17 +64,17 @@ const App = () => {
          <Route path='blog/blog-user-page/:id' element={<BlogPageUser/>}/>
          
          <Route path='admin/admin-blog/:id' element={<BlogPageUser/>}/>
+         <Route path='author-info/:authorId' element={<AuthorInfo/>}/>
         </Route>
 
-         
 
+        <Route path="/admin-panel" element={isAuthenticated ? <Layout /> : <Navigate to={'/login'} />}>
+  <Route index element={<Admin />} /> {/* Default content for /admin-panel */}
+  <Route path="pending-blogs" element={<PendingBlogs />} />
+  <Route path="blogs-by-admin" element={<BlogsByAdmin />} />
+  <Route path="approved-blogs" element={<ApprovedBlogs />} />
+</Route>
 
-
-         <Route path='/admin-panel' element={<Layout/>}>
-         <Route path='pending-blogs' element={<PendingBlogs/>}/>
-         <Route path='blogs-by-admin' element={<BlogsByAdmin/>}/>
-         <Route path='approved-blogs' element={<ApprovedBlogs/>}/>
-         </Route>
          </Routes>
          </BrowserRouter>
     
