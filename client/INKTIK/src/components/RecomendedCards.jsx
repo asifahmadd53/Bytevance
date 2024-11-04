@@ -4,7 +4,7 @@ import { profileicon } from '../assets';
 
 const RecomendedCards = ({ _id, title, cover, description, summary }) => {
   return (
-    <div className="min-w-full md:w-32 lg:w-36  mb-5">
+    <div className="min-w-40 md:w-36 lg:min-w-40  mb-5">
       <div className="rounded-xl flex flex-col">
         <div className="relative">
           <Link to={`/blog/blog-user-page/${_id}`}>

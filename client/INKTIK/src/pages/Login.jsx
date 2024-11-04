@@ -22,12 +22,12 @@ const Login = () => {
       });
   
       setUserInfo(response.data);
-      toast.success('Login successful!');
+      toast.success('Logged in successfully.');
       
       setEmail('')
       setPassword('')
 
-      if (response.data.role === 'admin') {
+      if (response.data.role === 'admin'){
         navigate('/admin-panel');
       } else {
         navigate('/');
@@ -35,7 +35,7 @@ const Login = () => {
   
     } catch (error) {
       console.error("Login failed", error); 
-      toast.error('Login failed!!');
+      toast.error('Login failed. Please try again.');
     }
   };
   

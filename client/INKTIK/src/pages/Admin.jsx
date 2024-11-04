@@ -2,7 +2,7 @@ import React from 'react'
 import AdminHeader from '../components/AdminHeader'
 import { Link, Outlet } from 'react-router-dom'
 import Layout from '../Layout'
-import { logo3 } from '../assets'
+import { dashboard, logo3 } from '../assets'
 
 
 const Admin = () => {
@@ -14,11 +14,10 @@ const Admin = () => {
   <header>
     <nav class="relative items-center px-4 mx-auto max-w-screen-xl sm:px-8 sm:flex sm:space-x-6 pt-20">
       <div class="flex justify-between">
-        <Link href="javascript:void(0)">
-          <img
+        <Link >
+          <img className='w-36 sm:w-44'
             src={logo3}
-            width="120"
-            height="50"
+           
             alt="Float UI logo"
           />
         </Link>
@@ -42,10 +41,11 @@ const Admin = () => {
   </header>
   <section class="mt-7 mx-auto max-w-screen-xl pb-4 px-4 items-center lg:flex md:px-8">
     <div class="space-y-4 flex-1 sm:text-center lg:text-left">
-      <h1 class="text-gray-800 font-bold text-4xl xl:text-5xl">
-        Optimize your website for
-        <span class="text-indigo-600"> Search engine</span>
-      </h1>
+    <h1 className="text-gray-600 font-bold text-4xl xl:text-5xl">
+    Manage Your Content with <span class="text-gray-900">Powerful Admin Tools</span>
+</h1>
+
+
       <p class="text-gray-500 max-w-xl leading-relaxed sm:mx-auto lg:ml-0">
   Welcome to your admin dashboard. Manage and optimize your content with ease, ensuring every article meets the highest standards for publication. Our tools streamline your workflow, allowing you to focus on what truly matters: delivering engaging, impactful stories to your readers.
 </p>
@@ -56,8 +56,8 @@ const Admin = () => {
 </div>
 
     </div>
-    <div class="flex-1 text-center mt-4 lg:mt-0 lg:ml-3">
-      <img src="https://i.postimg.cc/kgd4WhyS/container.png" class="w-full mx-auto sm:w-10/12 lg:w-full" />
+    <div className="flex-1 text-center mt-4 lg:mt-0 lg:ml-3">
+      <img src={dashboard} className="w-full mx-auto sm:w-10/12 lg:w-full" />
     </div>
   </section>
 </div>

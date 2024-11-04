@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { hassan, logo3, saad, zain2 } from '../assets'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
 
@@ -56,15 +57,15 @@ const Footer = () => {
           
         </form>
     </div>
-    <hr className='w-[90%] m-auto border-t border-[#363535d8] ' />
+    <hr className='w-[90%] m-auto border-t border-[#363535d8] md:mt-10' />
     <section class="pt-16 pb-7 ">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-24 pb-14 border-b-2 border-gray-200">
         <div class="block w-full lg:max-w-full max-lg:mx-auto">
           <div class="flex flex-col gap-8 w-full lg:max-w-xs ">
-            <a href="https://pagedone.io/" class="py-1.5 max-[470px]:w-full max-[470px]:flex items-center justify-center">
+            <Link to={'/'} class="py-1.5 max-[470px]:w-full max-[470px]:flex items-center justify-center">
               <img className='w-36 md:w-48' src={logo3} alt="" />
-            </a>
+            </Link>
             <p class="text-base font-normal text-gray-600 max-[470px]:text-center">
             A minimal, functional theme for running a paid-membership publication on Ghost.
             </p>

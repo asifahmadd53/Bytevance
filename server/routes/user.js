@@ -112,12 +112,12 @@ router.get('/profile',async( req, res)=>{
         const {token} = req.cookies
     
         if(!token){
-            return res.status(401).json({message:"Please login to access this route"})
+            return res.status(401).json(null)
         }
         
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded)=>{
             if(err){
-                return res.status(401).json({message:"Please login to access this route"})
+                return res.status(401).json(null)
             }
             res.json(decoded)
         })

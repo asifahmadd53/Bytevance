@@ -20,6 +20,7 @@ import HomeLayout from './HomeLayout';
 import AuthorInfo from './pages/AuthorInfo';
 import AuthRoute from './components/AuthRoute';
 import { useEffect, useState } from 'react';
+import FourError from './pages/FourError';
 
 
 
@@ -60,7 +61,7 @@ const App = () => {
 
         <Route path='/' element={<HomeLayout/>}>
         <Route path='pricing' element={<PricingCard/>}/>
-        <Route path='blog/blog/:id' element={<BlogPage/>}/>
+        
          <Route path='blog/blog-user-page/:id' element={<BlogPageUser/>}/>
          
          <Route path='admin/admin-blog/:id' element={<BlogPageUser/>}/>
@@ -73,7 +74,10 @@ const App = () => {
   <Route path="pending-blogs" element={<PendingBlogs />} />
   <Route path="blogs-by-admin" element={<BlogsByAdmin />} />
   <Route path="approved-blogs" element={<ApprovedBlogs />} />
+  <Route path='blog/blog/:id' element={<BlogPage/>}/>
 </Route>
+
+<Route path="*" element={<FourError />} />
 
          </Routes>
          </BrowserRouter>

@@ -44,7 +44,7 @@ const BlogsByAdmin = () => {
 
 
   return (
-    <div>
+    <div >
       <div className="min-h-screen w-full">
         <div className="flex w-full relative">
           {/* Left Section with Image */}
@@ -56,7 +56,7 @@ const BlogsByAdmin = () => {
             />
           </div>
           {/* Right Section with Form */}
-          <div className="right md:w-[80%] flex items-center justify-center w-full m-2 relative">
+          <div className="right pt-20 md:w-[80%] flex items-center justify-center w-full m-2 relative">
            
             <div className="flex flex-col items-start w-full max-w-md md:max-w-lg lg:max-w-xl relative">
               <form onSubmit={createdBlog} method="post" encType="multipart/form-data" className="flex flex-col items-center justify-center w-full">
@@ -68,14 +68,14 @@ const BlogsByAdmin = () => {
                   <input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2"
+                    className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 border border-slate-200 rounded-md px-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2"
                     placeholder="Type here..."
                   />
                   <label className="pb-5" htmlFor="">Description</label>
                   <textarea
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2 resize-none "
+                    className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 border border-slate-200 rounded-md px-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2 resize-none "
                     placeholder="Type here..."
                     rows={4}
                   />
@@ -83,11 +83,12 @@ const BlogsByAdmin = () => {
                   <textarea
                     value={summary}
                     onChange={(e) => setSummary(e.target.value)}
-                    className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2 resize-none"
+                    className="w-full bg-transparent placeholder:text-slate-400 text-slate-700  border border-slate-200 rounded-md px-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2 resize-none"
                     placeholder="Type here..."
                     rows={6}
                   />
-                  <div className="w-10 h-10 rounded-full mt-4 flex items-center justify-center ">
+                 <div className="flex items-center gap-2">
+                 <div className="w-10 h-10 rounded-full mt-4 flex items-center justify-center ">
     <input
     onChange={handleImageChange}
     type="file"
@@ -114,6 +115,8 @@ const BlogsByAdmin = () => {
     
 </div>
 <p className="pt-4 px-3 line-clamp-1 text-ellipsis">{image ? image.name : ''}</p>
+                 </div>
+
                 </div>
                 
                 <button className="bg-[#000] text-white py-2 rounded-3xl mt-4 px-5">

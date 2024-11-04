@@ -51,9 +51,9 @@ const Recomended = () => {
 // </div>}
 //       </div>
 
-<div className='pt-12 h-auto w-full'>
+<div className='pt-12 h-auto w-full px-2 '>
 <hr className='w-[90%] m-auto border-t border-[#3736366c] mb-10' />
-
+<h1 className='px-6 text-xl font-bold mb-4 md:text-2xl md:px-10'>Recomended</h1>
     {blogs.length === 0 ?  <div role='status' className=' border border-gray-300 rounded-lg p-4 xs:w-44 w-36 md:w-40  mb-5  mx-8'>
       <div class="animate-pulse w-full bg-gray-300 h-32 rounded-lg mb-5 flex justify-center items-center">
        <svg class="w-8 h-8 stroke-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +69,7 @@ const Recomended = () => {
        </div>
        </div> : <div className='grid w-full grid-cols-3 md:px-14 lg:px-20 px-8 sm:grid-cols-4 md:gap-5 md:grid-cols-5 pt-10 gap-2'>
        {
-       blogs.slice(0, 6).map((blog) => {
+       blogs.slice(3, 6).map((blog) => {
           return <RecomendedCards key={blog._id} {...blog} />
        })
    }

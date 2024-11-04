@@ -14,9 +14,8 @@ app.use(cookieparser())
 
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 
-app.get('/',(req, res)=>{
-    res.send('Hello World')
-})
+
+
 const port = process.env.PORT || 4000
 
 

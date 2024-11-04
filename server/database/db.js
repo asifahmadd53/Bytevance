@@ -5,7 +5,8 @@ const mongoURL = process.env.MONGODB_URL
 
 mongoose.connect(mongoURL,{
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+
 })
 const db = mongoose.connection
 
@@ -14,7 +15,6 @@ db.on('connected',()=>{
 })
 
 db.on('error', console.error.bind(console, 'connection error:'));
-
 
 db.on('disconnected', console.error.bind(console, 'Dicconnection error:'));
 

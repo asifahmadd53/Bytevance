@@ -83,7 +83,9 @@ router.get('/admin-blog/:id', async (req, res)=>{
 })
 
 
-
+router.post('/logout', (req, res)=>{
+  res.clearCookie('token').json({message: 'Logged out successfully'})
+})
 
 
 

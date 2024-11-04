@@ -116,14 +116,14 @@ return (
 
       <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-12">
         <section className="px-4 lg:px-0 mt-12 text-gray-900 text-lg leading-relaxed w-full lg:w-3/4">
-          {/* Updated Summary Design */}
+          
           <div className="border-l-4 border-gray-900 pl-4 mb-6 italic rounded">
             Description
           </div>
-          <p className="pb-6 text-lg tracking-wider font-light  rounded mb-6 break-words w-full md:w-[90%]">
-            {blogInfo.description}
-          </p>
-
+          <div
+                className="pb-6 text-lg tracking-wider font-light rounded mb-6 break-words w-full md:w-[95%] text-justify mx-auto"
+                dangerouslySetInnerHTML={{ __html: blogInfo.description }}
+              ></div>
           {/* Updated Description Design */}
           <p className="pb-2 text-gray-600 text-base leading-loose">
   Explore insightful perspectives and valuable takeaways on a variety of topics, thoughtfully crafted to inform and inspire.
@@ -140,9 +140,10 @@ return (
             Summary
           </div>
 
-          <p className="pb-6 text-gray-600 text-base leading-loose w-full break-words">
-            {blogInfo.summary}
-          </p>
+          <div
+                className="pb-6 text-gray-800 text-base leading-loose w-full break-words text-justify md:w-[95%] mx-auto"
+                dangerouslySetInnerHTML={{ __html: blogInfo.summary }}
+              ></div>
 
           <p className="pb-2 text-gray-600 text-base leading-loose">
   Gain valuable insights to enhance your understanding of key topics.

@@ -5,7 +5,7 @@ import { navLinks } from "../constants";
 import ProfileIcon from "./ProfileIcon";
 import axios from "axios";
 import { userContext } from "../contexts/UserContext";
-import { logo, logo2, logo3 } from "../assets";
+import { logo3, } from "../assets";
 
 
 const Header = () => {
@@ -25,15 +25,20 @@ const Header = () => {
                 const response = await axios.get('http://localhost:4000/user/profile', {
                     withCredentials: true,
                 });
-                setUserInfo(response.data); 
+                if(response.data){
+                    setUserInfo(response.data);
+                }
+                else{
+                    setUserInfo(null);
+                }
             } catch (error) {
-                console.error('Error fetching user profile:', error);
-                setUserInfo(false); 
+                
+                setUserInfo(null); 
             }
         };
-
         fetchUserProfile();
-    }, []);
+    }, [setUserInfo, userInfo]);
+    
     return (
         <>
             <header className="relative w-full ">
@@ -45,7 +50,7 @@ const Header = () => {
   <Link to={'/'}>
   <img
   
-    className="w-32 md:w-36 xl:w-36 mix-blend-color-burn object-contain bg-none"
+    className="w-32 md:w-36 xl:w-36 mix-blend-color-burn object-contain bg-none "
     src={logo3}
     alt=""
   />
@@ -60,9 +65,13 @@ const Header = () => {
                                 </li>
                             ))}
                             <div className="flex items-center gap-1">
-                            {userInfo ? <ProfileIcon /> :  <button className="border transition-colors duration-300 ease-in-out px-6 py-2 hidden md:block rounded-[3rem] bg-black text-white text-xl hover:bg-[#314bff]">
-                                    <Link to='/signup'>Join</Link>
-                                </button>}
+                            {userInfo ? (
+        <ProfileIcon />
+    ) : (
+        <button className="border transition-colors duration-300 ease-in-out px-6 py-2 hidden md:block rounded-[3rem] bg-black text-white text-xl hover:bg-[#314bff]">
+            <Link to='/signup'>Join</Link>
+        </button>
+    )}
                                 <div onClick={toggleSearch} ref={searchRef} className="md:border md:flex md:items-center md:bg-[#efeef0] cursor-pointer rounded-[3rem]">
                                     
                                 </div>

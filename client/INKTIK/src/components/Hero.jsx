@@ -45,7 +45,7 @@ const Hero = () => {
       <div className='pt-6 px-3 pl-6 md:px-16'>
       <h1 className='text-[2rem] xs:text-7xl md:text-8xl tracking-wide'>
   <span className='font-bold text-[2.4rem] xs:text-6xl md:text-8xl'>
-    Hey, we're Bytevance<span className='text-2xl md:text-4xl'>●</span>
+    Hey, we're Bytvance<span className='text-2xl md:text-4xl'>●</span>
   </span>
   <br className='hidden' /> <span className='tracking-wider text-4xl xs:text-[3.4rem] sm:text-6xl md:text-8xl font-thin sub-heading'>See our thoughts, stories and ideas.</span>
 

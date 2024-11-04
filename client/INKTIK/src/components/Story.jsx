@@ -12,7 +12,7 @@ const Story = ({ _id, author, cover, title, description, createdAt }) => {
   });
 
   return (
-    <div className="relative flex flex-col my-4 min-w-[80%] xs:min-w-56 xs:max-w-56 sm:min-w-72 md:min-w-80 lg:min-w-96 shadow-sm rounded-lg transition-all duration-700">
+    <div className="relative flex flex-col my-4 min-w-[90%] xs:min-w-56 xs:max-w-56 sm:min-w-72 md:min-w-80 lg:min-w-96 shadow-sm rounded-lg transition-all duration-700">
       <Link to={`/blog/blog-user-page/${_id}`}>
         <div className="relative h-[25rem] xs:h-60 sm:min-h-80 md:min-h-[22rem] lg:min-h-[27rem] text-white m-2.5 rounded-md">
           <img className='h-full w-full rounded-xl object-cover hover:-translate-y-1 duration-500' src={cover} alt={title}/>
@@ -26,7 +26,7 @@ const Story = ({ _id, author, cover, title, description, createdAt }) => {
           {title}
         </h6>
 
-        <p className="text-slate-600 leading-normal font-light overflow-hidden text-ellipsis line-clamp-1">
+        <p className="text-slate-600 leading-normal font-light overflow-hidden text-ellipsis line-clamp-1 break-words">
           {description}
         </p>
       </div>

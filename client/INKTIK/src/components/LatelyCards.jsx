@@ -18,7 +18,7 @@ const LatelyCards = ({_id,title, description, summary, cover}) => {
         <img className="hover:-translate-y-1 duration-500 transition-all rounded-[1.2rem] sm:rounded-[1.5rem] w-full h-full xs:h-[17rem] sm:h-[26rem] md:h-[25rem] lg:h-[32rem] object-cover" src={cover} alt=""/>
         </Link>
         <div className='absolute bottom-2 left-2'>
-<Link to={'/author-info'}>
+<Link to={'/author-info/1'}>
 <img className=" w-10 h-10 rounded-full object-top object-cover ring-2 ring-gray-300 dark:ring-white" src={admin}/>
 </Link>
 

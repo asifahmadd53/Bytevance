@@ -18,8 +18,8 @@ const Stories = () => {
 
   const handleNext = () => {
     if (swiperRef.current) {
-      const width = swiperRef.current.firstChild.offsetWidth; // Get the width of one card
-      swiperRef.current.scrollBy({ left: width, behavior: 'smooth' }); // Scroll by one card width
+      const width = swiperRef.current.firstChild.offsetWidth; 
+      swiperRef.current.scrollBy({ left: width, behavior: 'smooth' });
     }
   };
 
@@ -33,11 +33,10 @@ const Stories = () => {
   return (
     <div className='min-h-auto w-full mt-10 px-2 md:px-10'>
       <hr className='w-[90%] m-auto border-t border-[#37363647] ' />
-
      <div className='flex items-center justify-between px-5 pt-5'>
 
-      <h1> 
-      Get started with our <span className='text-xl font-semibold'>best stories</span>
+      <h1 className='text-lg md:text-xl'> 
+      Get started with our <span className='text-xl font-semibold md:text-2xl'>best stories</span>
       </h1>
 
 

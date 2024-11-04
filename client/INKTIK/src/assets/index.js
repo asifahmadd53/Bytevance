@@ -11,10 +11,10 @@ import hassan from './hassan.png'
 import saad from './saad.jpg'
 import mariyam from './mariyam.jpg'
 import signupimg from './blogimg.jpg'
-
-
+import dashboard from './dashboard.png'
 
 export {
+    dashboard,
     signupimg,
     blogimg,
     mariyam,

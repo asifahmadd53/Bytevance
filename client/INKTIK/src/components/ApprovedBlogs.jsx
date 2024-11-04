@@ -16,7 +16,8 @@ const ApprovedBlogs = () => {
   }, []);
 
   return (
-    <div>
+    <div className='pt-20'>
+      
       {blogs.length > 0 && (
         <h1 className='text-4xl text-center py-8'>Approved Blogs</h1>
       )}
@@ -24,7 +25,13 @@ const ApprovedBlogs = () => {
         {blogs.length > 0 ? (
           blogs.map((blog) => <PendingBlog key={blog._id} {...blog} />)
         ) : (
-          <p className='text-center text-lg'>No pending blogs available.</p>
+          
+<div className="flex gap-2 pt-10 md:pt-32">
+    <div className="w-4 h-4 md:w-6 md:h-6 rounded-full animate-pulse bg-gray-700"></div>
+    <div className="w-4 h-4  md:w-6 md:h-6 rounded-full animate-pulse bg-gray-700"></div>
+    <div className="w-4 h-4  md:w-6 md:h-6 rounded-full animate-pulse bg-gray-700"></div>
+</div>
+
         )}
       </div>
     </div>
