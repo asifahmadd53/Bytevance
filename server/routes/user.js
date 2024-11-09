@@ -57,9 +57,10 @@ router.post('/login', async (req, res) => {
             const role = 'admin';
             const token = jwt.sign({ email, role }, process.env.JWT_SECRET);
            res.cookie('token', token, { 
-                httpOnly: true,
-                secure: true,
-                sameSite: 'strict' 
+                 secure: true,
+                   httpOnly: false,
+                   sameSite: "none",
+                   maxAge: 60 * 60 * 1000,
             }).json({ email, role });
             return;
         }
@@ -76,9 +77,10 @@ router.post('/login', async (req, res) => {
             const role = 'user'; 
             const token = jwt.sign({ email, id: user._id, role }, process.env.JWT_SECRET);
              res.cookie('token', token, { 
-                httpOnly: true,
-                secure: true,
-                sameSite: 'None'
+               secure: true,
+                   httpOnly: false,
+                   sameSite: "none",
+                   maxAge: 60 * 60 * 1000,
             }).json({ email: user.email, role });
         } else {
             res.status(400).json({ message: "Invalid username and password" });
@@ -108,9 +110,10 @@ router.get('/profile',async( req, res)=>{
 
 router.post('/logout', (req, res) => {
     res.clearCookie('token', {
-        httpOnly: true,
         secure: true,
-        sameSite: 'None'
+                   httpOnly: false,
+                   sameSite: "none",
+                   maxAge: 60 * 60 * 1000,
     }).status(200).json({ message: 'Logged out successfully' });
 });
 
