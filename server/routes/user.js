@@ -131,9 +131,12 @@ router.get('/profile',async( req, res)=>{
 
 
 router.post('/logout', (req, res)=>{
-    res.clearCookie('token').json({message: 'Logged out successfully'})
+    res.clearCookie('token', {
+        httpOnly: true,                      
+        secure: true, 
+        sameSite: 'None',                    
+    }).status(200).json({ message: 'Logged out successfully' });
 })
-
 
 router.post('/subscriber',async(req, res)=>{
     const {email} = req.body
