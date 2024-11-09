@@ -9,7 +9,7 @@ const AuthRoute = ({ children }) => {
         const checkAuth = async () => {
             try {
                 const response = await axios.get('/auth/protected-route', { withCredentials: true });
-                console.log('Response:', response); // Log response to check user data
+                
                 setIsAuthenticated(response.data.user ? true : false);
             } catch (error) {
                 console.error('Auth check error:', error); // Log error

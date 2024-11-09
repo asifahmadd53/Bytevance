@@ -14,13 +14,12 @@ const BlogPageUser = () => {
 
   useEffect(() => {
     const apiEndpoint = location.pathname.includes('/admin-blog')
-      ? `http://bytvance-backend.vercel.app/admin/admin-blog/${id}`
-      : `http://bytvance-backend.vercel.app/blog/blog-user-page/${id}`;
+      ? `http://localhost:5000/admin/admin-blog/${id}`
+      : `http://localhost:5000/blog/blog-user-page/${id}`;
 
       axios
       .get(apiEndpoint)
       .then((response) => {
-        console.log(response.data);
         setBlogInfo(response.data);  // Corrected syntax here
       })
       .catch(() => alert('Failed to load blog post'));
@@ -31,7 +30,7 @@ const BlogPageUser = () => {
     return (
       <div className="flex flex-col justify-center items-center w-full h-screen  flex-wrap  gap-12 animate-pulse px-4">
   {/* SVG and Placeholder Box */}
-  <div className="grid bg-gray-300 rounded-lg place-items-center w-32 h-32">
+  <div className="grid bg-gray-300 rounded-lg place-items-center w-44 h-44 md:w-60 md:h-60">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -68,7 +67,7 @@ const BlogPageUser = () => {
   
   
 return (
-  <div className="px-2 md:px-10">
+  <div className="px-2 md:px-20">
   {blogInfo ? (
     <main className="mt-10 w-full">
       <article className="mb-4 md:mb-0 w-full mx-auto relative sm:flex sm:items-center sm:justify-between ">

@@ -35,17 +35,12 @@ router.post('/admin-blogs', upload.single('image'), async (req, res) => {
     }
 
     try {
-        // Verify the JWT token
-        // const info = jwt.verify(token, process.env.JWT_SECRET);
-
-        // Destructure request body
+      
         const { title, description, summary } = req.body; 
         
         const imageBase64 = req.file.buffer.toString('base64');
         const imageMimeType = req.file.mimetype;
         const imageSrc = `data:${imageMimeType};base64,${imageBase64}`;
-
-
         const Adminblog = await AdminBlogs.create({
             title,
             description,

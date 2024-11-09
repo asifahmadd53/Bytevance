@@ -3,7 +3,7 @@ import { blogimg, loginImg, logo3, signupimg, } from '../assets';
 import axios from 'axios';
 import { userContext } from '../contexts/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 
 const Signup = () => {
   const [fullname, setFullname] = useState('');
@@ -15,7 +15,7 @@ const Signup = () => {
   const signup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://bytvance-backend.vercel.app/user/signup', {
+      const response = await axios.post('http://localhost:5000/user/signup', {
         fullname,
         email,
         password
@@ -27,8 +27,7 @@ const Signup = () => {
       toast.success('Account Created Successfully');
       navigate('/');
     } catch (err) {
-      console.log('error', err);
-      toast.error('Sign up Failed!');
+      toast.error("Sign-up unsuccessful.");
     }
   };
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { blogimg, loginImg, signupimg } from "../assets";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import { toast } from "sonner";
 
 const BlogsByAdmin = () => {
 
@@ -26,7 +26,7 @@ const BlogsByAdmin = () => {
     
 
     try {
-      await axios.post('http://bytvance-backend.vercel.app/admin/admin-blogs', formData, {
+      await axios.post('http://localhost:5000/admin/admin-blogs', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { blogimg, loginImg, logo3, signupimg } from "../assets";
 import axios from "axios";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 
 
@@ -34,7 +34,7 @@ const CreateBlogs = () => {
 
     try {
 
-      await axios.post('http://bytvance-backend.vercel.app/blog/created-blog', formData, {
+      await axios.post('http://localhost:5000/blog/created-blog', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

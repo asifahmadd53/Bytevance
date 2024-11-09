@@ -3,7 +3,7 @@ import { profileicon } from '../assets';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { userContext } from '../contexts/UserContext';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 
 const ProfileIcon = () => {
   const dropdownRef = useRef(null); 
@@ -38,13 +38,11 @@ const ProfileIcon = () => {
   const {userInfo, setUserInfo}  = useContext(userContext)
   const logout =async ()=>{
     try {
-        const response = await axios.post('http://bytvance-backend.vercel.app/user/logout',{}, {
+        const response = await axios.post('http://localhost:5000/user/logout',{}, {
             withCredentials: true,
         });
         if (response.status === 200) {
-            
-            console.log("Logout successful:", response.data);
-            toast.success('Logout')
+            toast.success('Logout successful')
             setUserInfo(false);
         }
     } catch (error) {
@@ -55,7 +53,7 @@ const ProfileIcon = () => {
   useEffect(() => {
     const fetchFullName = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/user/get-fullname', {
+        const response = await axios.get('http://localhost:5000/user/get-fullname', {
           withCredentials: true,
         });
         setName(response.data.fullname);

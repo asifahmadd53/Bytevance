@@ -6,7 +6,7 @@ import Lately from './Lately';
 import Recomended from './Recomended';
 import Footer from './Footer';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 
 const Hero = () => {
 
@@ -17,12 +17,11 @@ const Hero = () => {
 
       try{
         if(email.length > 0){
-          let response = axios.post('http://bytvance-backend.vercel.app/user/subscriber', { email },{
+          let response = axios.post('http://localhost:5000/user/subscriber', { email },{
             withCredentials:true
           })
         setEmail(response.data)
         toast.success('You have been subscribed')
-          
         setEmail('')
         }
         else{
@@ -30,8 +29,7 @@ const Hero = () => {
           setError(true)
         }
       }catch(err){
-        console.log(err)
-        toast.error('failed')
+        toast.error('Event has not been created')
       }
       
     };

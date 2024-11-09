@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { hassan, logo3, saad, zain2 } from '../assets'
 import axios from 'axios'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
@@ -13,12 +13,11 @@ const Footer = () => {
 
       try{
         if(email.length > 0){
-          let response = axios.post('http://bytvance-backend.vercel.app/user/subscriber', { email },{
+          let response = axios.post('http://localhost:5000/user/subscriber', { email },{
             withCredentials:true
           })
         setEmail(response.data)
         toast.success('You have been subscribed')
-          
         setEmail('')
         }
         else{
@@ -26,8 +25,7 @@ const Footer = () => {
           setError(true)
         }
       }catch(err){
-        console.log(err)
-        toast.error('failed')
+        toast.error('Failed')
       }
       
     };

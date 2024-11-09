@@ -3,7 +3,7 @@ import { loginImg, logo3 } from '../assets';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { userContext } from '../contexts/UserContext';
-import { toast } from 'react-hot-toast';
+import { toast } from 'sonner';
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -14,7 +14,7 @@ const Login = () => {
   const login = async (e) => {
     e.preventDefault(); 
     try {
-      const response = await axios.post('http://bytvance-backend.vercel.app/user/login', {
+      const response = await axios.post('http://localhost:5000/user/login', {
         email,
         password
       },{

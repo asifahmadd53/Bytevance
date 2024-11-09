@@ -15,7 +15,8 @@ import BlogPage from './pages/BlogPage';
 import BlogsByAdmin from './pages/BlogsByAdmin';
 import ApprovedBlogs from './components/ApprovedBlogs';
 import BlogPageUser from './pages/BlogPageUser';
-import { Toaster } from 'react-hot-toast';
+// import { Toaster } from 'react-hot-toast';
+import { Toaster } from 'sonner';
 import HomeLayout from './HomeLayout';
 import AuthorInfo from './pages/AuthorInfo';
 import AuthRoute from './components/AuthRoute';
@@ -29,7 +30,7 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const checkAuth = async () => {
-        const res = await fetch('http://bytvance-backend.vercel.app/auth/check-auth', { credentials: 'include' });
+        const res = await fetch('http://localhost:5000/auth/check-auth', { credentials: 'include' });
         if (res.ok) {
             setIsAuthenticated(true);
         } else {
@@ -44,7 +45,7 @@ const App = () => {
 
   return (
    <>
-   <Toaster /> 
+   <Toaster position='top-center'/> 
     <BrowserRouter>
        <Routes>
         <Route path='/' element={<Hero/>}/> 

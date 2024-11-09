@@ -6,7 +6,7 @@ const PendingBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get('http://bytvance-backend.vercel.app/blog/pending-blogs')
+    axios.get('http://localhost:5000/blog/pending-blogs')
       .then(response => {
         setBlogs(response.data);
       })

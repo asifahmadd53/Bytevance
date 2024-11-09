@@ -3,10 +3,10 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 const jwt =  require('jsonwebtoken')
 require('dotenv').config()
-
 const userModel = require('../models/user')
 const SubscribersModel = require('../models/Subscribers')
 const ContactModel = require('../models/Contact')
+
 
 router.post('/signup', async (req, res) => {
     const { fullname, email, password } = req.body;
@@ -72,6 +72,7 @@ router.post('/signup', async (req, res) => {
 //         console.log(err)
 //     }
 // })
+
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
