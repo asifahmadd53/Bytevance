@@ -55,10 +55,10 @@ router.post('/login', async (req, res) => {
             
             const role = 'admin';
             const token = jwt.sign({ email, role }, process.env.JWT_SECRET);
-            res.cookie('token', token, {
+           res.cookie('token', token, { 
                 httpOnly: true,
-                secure: process.env.COOKIE_SECURE === 'true', // Set secure based on environment variable
-                sameSite: 'None' // Enable cross-site cookie access
+                secure: true,
+                sameSite: 'strict' 
             }).json({ email, role });
             return;
         }
