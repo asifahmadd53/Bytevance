@@ -28,8 +28,11 @@ router.post('/signup', async (req, res) => {
                 if (err) {
                     return res.status(500).json({ message: 'Token generation failed' });
                 }
-                 res.cookie('token', token)
-                   .status(201)
+                 res.cookie('token', token,{
+                    httpOnly:true,
+                    cure: process.env.NODE_ENV === 'production',
+                    sameSite:'None'
+                }).status(201)
                    .json({ message: 'User created successfully', email: user.email });
             });
 
@@ -41,37 +44,6 @@ router.post('/signup', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
-
-
-// router.post('/login',async (req, res)=>{
-//     const {email,password}=req.body;
-//     try{
-//         const user = await userModel.findOne({email});
-//         if(!user){
-//             res.status(400).json({message:"Invalid username and password"})
-//         }
-
-       
-//         const isAdmin = email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD;
-//         const role = isAdmin ? 'admin' : 'user';
-
-
-//         const isMatch = await bcrypt.compare(password,user.password);
-//         if(isMatch){
-//             jwt.sign({email, id: user._id, role }, process.env.JWT_SECRET, {}, (err, token)=>{
-//                 if(err) throw err
-//                 res.cookie('token', token).json({
-//                     email: user.email
-//                 })
-//             })
-
-//         }else{
-//             res.status(400).json({message:"Invalid username and password"})
-//         }
-//     }catch(err){
-//         console.log(err)
-//     }
-// })
 
 
 router.post('/login', async (req, res) => {
