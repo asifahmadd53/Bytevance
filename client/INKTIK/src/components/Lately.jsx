@@ -13,7 +13,6 @@ const Lately = () => {
   useEffect(() => {
     axios.get('http://localhost:4000/admin/admin-blogs')
       .then(response => {
-        setAdminBlogs(Array.isArray(response.data))
         setAdminBlogs(response.data);
       })
       .catch(error => {
@@ -72,11 +71,9 @@ const Lately = () => {
         <span class="h-2 bg-gray-300 rounded-full w-16 "></span>
       </div>
       </div>:  <div className='grid w-full grid-cols-1 xs:grid-cols-2 md:grid-cols-3  md:px-14 px-5 gap-3 lg:gap-5'>
-      {(Array.isArray(adminBlogs) ? adminBlogs : [])
-    .slice(0, visibleBlogs)
-    .map((blog) => (
-      <LatelyCards key={blog._id} {...blog} />
-    ))}
+        {adminBlogs.slice(0, visibleBlogs).map((blog) => (
+          <LatelyCards key={blog._id} {...blog} />
+        ))}
       </div>  }
 
 
