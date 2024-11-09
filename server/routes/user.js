@@ -30,7 +30,7 @@ router.post('/signup', async (req, res) => {
                 }
                 res.cookie('token', token, {
                     httpOnly: true,                      // Prevents JavaScript access to the cookie
-                    secure: process.env.NODE_ENV === 'production',  // Only send cookie over HTTPS in production
+                    secure: true,  // Only send cookie over HTTPS in production
                     sameSite: 'None',                    // Allows cross-origin requests with credentials
                     maxAge: 24 * 60 * 60 * 1000,         // Cookie expiration (adjust as needed)
                 })
