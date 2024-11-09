@@ -41,7 +41,7 @@ const Hero = () => {
     <SideMenu/>
     <div className='h-auto w-full'>
       <div className='pt-6 px-3 pl-6 md:px-16'>
-      <h1 className='text-[2rem] xs:text-7xl md:text-8xl tracking-wide'>
+      <h1 className='text-[2rem] xs:text-7xl md:text-8xl md:pt-10 md:pb-8'>
   <span className='font-bold text-[2.4rem] xs:text-6xl md:text-8xl'>
     Hey, we're Bytvance<span className='text-2xl md:text-4xl'>●</span>
   </span>
