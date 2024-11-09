@@ -14,7 +14,7 @@ const Login = () => {
   const login = async (e) => {
     e.preventDefault(); 
     try {
-      const response = await axios.post('http://localhost:5000/user/login', {
+      const response = await axios.post('http://bytvance-backend.vercel.app/user/login', {
         email,
         password
       },{

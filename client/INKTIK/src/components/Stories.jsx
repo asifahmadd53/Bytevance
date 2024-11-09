@@ -6,7 +6,7 @@ const Stories = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/blog/approved-blogs')
+    axios.get('http://bytvance-backend.vercel.app/blog/approved-blogs')
       .then((res) => {
         setBlogs(res.data);
       }).catch((err) => {

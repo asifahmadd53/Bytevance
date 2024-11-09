@@ -29,7 +29,7 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const checkAuth = async () => {
-        const res = await fetch('/auth/check-auth', { credentials: 'include' });
+        const res = await fetch('http://bytvance-backend.vercel.app/auth/check-auth', { credentials: 'include' });
         if (res.ok) {
             setIsAuthenticated(true);
         } else {

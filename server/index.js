@@ -12,10 +12,13 @@ const cookieparser = require('cookie-parser')
 app.use(express.json());
 app.use(cookieparser())
 
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: 'http://bytvance-backend.vercel.app', credentials: true }));
 
 const port = process.env.PORT || 5000
 
+app.get('/',(req, res)=>{
+    res.send('Hii this is Bytvance')
+})
 
 app.use('/user',userRoutes)
 app.use('/blog',blogRoutes)

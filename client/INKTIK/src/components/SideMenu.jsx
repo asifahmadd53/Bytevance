@@ -19,7 +19,7 @@ const SideMenu = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/user/profile', {
+                const response = await axios.get('http://bytvance-backend.vercel.app/user/profile', {
                     withCredentials: true
                 });
                 setUserInfo(response.data);
