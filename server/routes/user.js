@@ -28,10 +28,10 @@ router.post('/signup', async (req, res) => {
                 if (err) {
                     return res.status(500).json({ message: 'Token generation failed' });
                 }
-                 res.cookie('token', token, { 
+                  res.cookie('token', token, { 
                     httpOnly: true,
-                    secure: true, // Ensure cookie is only sent over HTTPS
-                    sameSite: 'strict' // Restrict to same site for better security
+                    secure: true, // Cookie is only sent over HTTPS
+                    sameSite: 'None' // None for cross-site cookies
                 })
                 .status(201)
                 .json({ message: 'User created successfully', email: user.email });
@@ -74,7 +74,11 @@ router.post('/login', async (req, res) => {
         if (isMatch) {
             const role = 'user'; 
             const token = jwt.sign({ email, id: user._id, role }, process.env.JWT_SECRET);
-            res.cookie('token', token).json({ email: user.email, role });
+             res.cookie('token', token, { 
+                httpOnly: true,
+                secure: true,
+                sameSite: 'None'
+            }).json({ email: user.email, role });
         } else {
             res.status(400).json({ message: "Invalid username and password" });
         }
@@ -101,13 +105,14 @@ router.get('/profile',async( req, res)=>{
 })
 
 
-router.post('/logout', (req, res)=>{
+router.post('/logout', (req, res) => {
     res.clearCookie('token', {
-        httpOnly: true,                      
-        secure: true, 
-        sameSite: 'None',                    
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None'
     }).status(200).json({ message: 'Logged out successfully' });
-})
+});
+
 
 router.post('/subscriber',async(req, res)=>{
     const {email} = req.body
