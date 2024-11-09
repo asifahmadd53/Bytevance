@@ -16,6 +16,9 @@ app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 
 const port = process.env.PORT || 5000
 
+app.get('/',(req, res)=>{
+    res.send('Hii this is Bytvance')
+})
 
 app.use('/user',userRoutes)
 app.use('/blog',blogRoutes)
