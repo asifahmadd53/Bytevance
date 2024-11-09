@@ -6,7 +6,7 @@ const ApprovedBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/blog/approved-blogs')
+    axios.get('http://localhost:5000/blog/approved-blogs')
       .then(response => {
         setBlogs(response.data);
       })

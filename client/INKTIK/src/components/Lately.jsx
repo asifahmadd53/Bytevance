@@ -11,7 +11,7 @@ const Lately = () => {
 
 
   useEffect(() => {
-    axios.get('http://localhost:4000/admin/admin-blogs')
+    axios.get('http://localhost:5000/admin/admin-blogs')
       .then(response => {
         setAdminBlogs(response.data);
       })

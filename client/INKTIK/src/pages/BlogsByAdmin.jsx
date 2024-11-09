@@ -26,7 +26,7 @@ const BlogsByAdmin = () => {
     
 
     try {
-      await axios.post('http://localhost:4000/admin/admin-blogs', formData, {
+      await axios.post('http://localhost:5000/admin/admin-blogs', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

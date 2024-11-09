@@ -12,7 +12,7 @@ const AdminSideMenu = () => {
     const navigate = useNavigate();
     const logout =async ()=>{
         try {
-            const response = await axios.post('http://localhost:4000/admin/logout',{}, {
+            const response = await axios.post('http://localhost:5000/admin/logout',{}, {
                 withCredentials: true,
             });
             if (response.status === 200) {

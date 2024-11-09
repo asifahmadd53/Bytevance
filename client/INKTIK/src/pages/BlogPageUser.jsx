@@ -14,8 +14,8 @@ const BlogPageUser = () => {
 
   useEffect(() => {
     const apiEndpoint = location.pathname.includes('/admin-blog')
-      ? `http://localhost:4000/admin/admin-blog/${id}`
-      : `http://localhost:4000/blog/blog-user-page/${id}`;
+      ? `http://localhost:5000/admin/admin-blog/${id}`
+      : `http://localhost:5000/blog/blog-user-page/${id}`;
 
       axios
       .get(apiEndpoint)

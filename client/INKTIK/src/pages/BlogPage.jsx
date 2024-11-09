@@ -8,7 +8,7 @@ const BlogPage = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/blog/blog/${id}`)
+        axios.get(`http://localhost:5000/blog/blog/${id}`)
             .then(response => setBlogInfo(response.data))
             .catch(error => {
                 console.error(error);
@@ -18,7 +18,7 @@ const BlogPage = () => {
 
     const handleApprove = async () => {
         try {
-            await axios.patch(`http://localhost:4000/admin/approved/${id}`);
+            await axios.patch(`http://localhost:5000/admin/approved/${id}`);
             setBlogInfo(prev => ({ ...prev, approved: true }));
         } catch (error) {
             console.log(error);
@@ -27,7 +27,7 @@ const BlogPage = () => {
 
     const handlePending = async () => {
         try {
-            await axios.patch(`http://localhost:4000/admin/pending/${id}`);
+            await axios.patch(`http://localhost:5000/admin/pending/${id}`);
             setBlogInfo(prev => ({ ...prev, approved: false }));
         } catch (error) {
             console.log(error);

@@ -34,7 +34,7 @@ const CreateBlogs = () => {
 
     try {
 
-      await axios.post('http://localhost:4000/blog/created-blog', formData, {
+      await axios.post('http://localhost:5000/blog/created-blog', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

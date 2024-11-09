@@ -14,17 +14,9 @@ app.use(cookieparser())
 
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 
-const port = process.env.PORT || 4000
-
-<<<<<<< HEAD
-=======
-
-app.use('/',(req,res)=>{
-    res.send('Hii This is Bytvance')
-})
+const port = process.env.PORT || 5000
 
 
->>>>>>> parent of 0deb741 (final version4)
 app.use('/user',userRoutes)
 app.use('/blog',blogRoutes)
 app.use('/admin',adminRoute)

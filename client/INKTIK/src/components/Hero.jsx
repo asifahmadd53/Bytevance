@@ -17,7 +17,7 @@ const Hero = () => {
 
       try{
         if(email.length > 0){
-          let response = axios.post('http://localhost:4000/user/subscriber', { email },{
+          let response = axios.post('http://localhost:5000/user/subscriber', { email },{
             withCredentials:true
           })
         setEmail(response.data)

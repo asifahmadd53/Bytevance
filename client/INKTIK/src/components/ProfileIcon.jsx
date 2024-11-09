@@ -38,7 +38,7 @@ const ProfileIcon = () => {
   const {userInfo, setUserInfo}  = useContext(userContext)
   const logout =async ()=>{
     try {
-        const response = await axios.post('http://localhost:4000/user/logout',{}, {
+        const response = await axios.post('http://localhost:5000/user/logout',{}, {
             withCredentials: true,
         });
         if (response.status === 200) {
