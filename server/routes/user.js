@@ -28,14 +28,14 @@ router.post('/signup', async (req, res) => {
                 if (err) {
                     return res.status(500).json({ message: 'Token generation failed' });
                 }
-                 res.cookie('token', token,{
-                    httpOnly:true,
-                    cure: process.env.NODE_ENV === 'production',
-                    sameSite:'None'
-                }).status(201)
-                   .json({ message: 'User created successfully', email: user.email });
+                 res.cookie('token', token, { 
+                    httpOnly: true,
+                    secure: true, // Ensure cookie is only sent over HTTPS
+                    sameSite: 'strict' // Restrict to same site for better security
+                })
+                .status(201)
+                .json({ message: 'User created successfully', email: user.email });
             });
-
         } else {
             res.status(400).json({ message: 'User already exists' });
         }
