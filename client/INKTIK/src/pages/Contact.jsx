@@ -13,7 +13,7 @@ const Login = () => {
       e.preventDefault();
       if(email.length > 0 && name.length > 0 && message.length > 0){
         try {
-          await axios.post('http://localhost:5000/user/contact', {
+          await axios.post('https://bytvance-backend.vercel.app/user/contact', {
           name,   
           email,   
           message  

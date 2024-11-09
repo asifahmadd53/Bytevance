@@ -27,7 +27,7 @@ const BlogPage = () => {
 
     const handlePending = async () => {
         try {
-            await axios.patch(`http://bytvance-backend.vercel.app/admin/pending/${id}`);
+            await axios.patch(`https://bytvance-backend.vercel.app/admin/pending/${id}`);
             setBlogInfo(prev => ({ ...prev, approved: false }));
         } catch (error) {
             console.log(error);

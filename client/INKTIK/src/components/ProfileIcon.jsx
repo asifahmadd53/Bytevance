@@ -38,7 +38,7 @@ const ProfileIcon = () => {
   const {userInfo, setUserInfo}  = useContext(userContext)
   const logout =async ()=>{
     try {
-        const response = await axios.post('http://localhost:5000/user/logout',{}, {
+        const response = await axios.post('https://bytvance-backend.vercel.app/user/logout',{}, {
             withCredentials: true,
         });
         if (response.status === 200) {
@@ -53,7 +53,7 @@ const ProfileIcon = () => {
   useEffect(() => {
     const fetchFullName = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/user/get-fullname', {
+        const response = await axios.get('https://bytvance-backend.vercel.app/user/get-fullname', {
           withCredentials: true,
         });
         setName(response.data.fullname);
