@@ -29,9 +29,10 @@ router.post('/signup', async (req, res) => {
                     return res.status(500).json({ message: 'Token generation failed' });
                 }
                   res.cookie('token', token, { 
-                    httpOnly: true,
-                    secure: true, // Cookie is only sent over HTTPS
-                    sameSite: 'None' // None for cross-site cookies
+                   secure: true,
+                   httpOnly: false,
+                   sameSite: "none",
+                   maxAge: 60 * 60 * 1000,
                 })
                 .status(201)
                 .json({ message: 'User created successfully', email: user.email });
