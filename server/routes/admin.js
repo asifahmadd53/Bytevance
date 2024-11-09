@@ -79,7 +79,12 @@ router.get('/admin-blog/:id', async (req, res)=>{
 
 
 router.post('/logout', (req, res)=>{
-  res.clearCookie('token').json({message: 'Logged out successfully'})
+  res.clearCookie('token', {
+        secure: true,
+                   httpOnly: false,
+                   sameSite: "none",
+                   maxAge: 60 * 60 * 1000,
+    }).status(200).json({ message: 'Logged out successfully' });
 })
 
 
