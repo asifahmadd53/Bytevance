@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { profileicon } from '../assets';
 
-const Story = ({ _id,fullname, author, cover, title, description, createdAt }) => {
+const Story = ({ _id, fullname, author, cover, title, description, createdAt }) => {
   const formatDate = new Date(createdAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
