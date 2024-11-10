@@ -45,7 +45,9 @@ const App = () => {
 
   return (
    <>
-   <Toaster position='top-center'/> 
+    <Toaster position='top-center' closeButton visibleToasts={2000} richColors toastOptions={{
+    className:"custom-toast"
+   }}/>  
     <BrowserRouter>
        <Routes>
         <Route path='/' element={<Hero/>}/> 
