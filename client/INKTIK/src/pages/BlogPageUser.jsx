@@ -140,7 +140,7 @@ return (
           </div>
 
           <div
-                className="pb-6 text-gray-800 text-base leading-loose w-full break-words  md:w-[95%] mx-auto"
+                className="pb-6 text-gray-800 text-base md:text-lg leading-loose w-full break-words  md:w-[95%] mx-auto"
                 dangerouslySetInnerHTML={{ __html: blogInfo.summary }}
               ></div>
 
