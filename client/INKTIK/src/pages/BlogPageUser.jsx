@@ -120,7 +120,7 @@ return (
             Description
           </div>
           <div
-                className="pb-6 text-lg tracking-wider font-light rounded mb-6 break-words w-full md:w-[95%] text-justify mx-auto"
+                className="pb-6 text-lg tracking-wider font-light rounded mb-6 break-words w-full md:w-[95%] mx-auto"
                 dangerouslySetInnerHTML={{ __html: blogInfo.description }}
               ></div>
           {/* Updated Description Design */}
