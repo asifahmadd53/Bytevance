@@ -39,7 +39,7 @@ const Story = ({ _id, author, cover, title, description, createdAt }) => {
             className="relative inline-block h-8 w-8 rounded-full"
           />
           <div className="flex flex-col ml-3 text-sm">
-            <span className="text-slate-800 font-semibold">{author.fullname}</span>
+            <span className="text-slate-800 font-semibold">{author?.fullname || 'Anonymouse'}</span>
             <span className="text-slate-600">
               {formatDate}
             </span>
