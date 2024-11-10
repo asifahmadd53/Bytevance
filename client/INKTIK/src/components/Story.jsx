@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { profileicon } from '../assets';
 
-const Story = ({ _id, author, cover, title, description, createdAt }) => {
+const Story = ({ _id,fullname, author, cover, title, description, createdAt }) => {
   const formatDate = new Date(createdAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -39,7 +39,7 @@ const Story = ({ _id, author, cover, title, description, createdAt }) => {
             className="relative inline-block h-8 w-8 rounded-full"
           />
           <div className="flex flex-col ml-3 text-sm">
-            <span className="text-slate-800 font-semibold">{author?.fullname || 'Anonymouse'}</span>
+             <span className="text-slate-800 font-semibold">{fullname || 'Anonymouse'}</span>
             <span className="text-slate-600">
               {formatDate}
             </span>
