@@ -41,7 +41,7 @@ const Signup = () => {
         </div>
         <div className="right flex items-center flex-col justify-center w-full h-screen m-2 relative">
           <div className='flex items-start sm:justify-center sm:items-center w-full'>
-            <div className='w-32 xs:w-36 sm:w-44 ml-3 mt-4'>
+            <div className='w-32 xs:w-36 sm:w-44 ml-3 '>
               <img className='relative ' src={logo3} alt="Logo" />
             </div>
           </div>
