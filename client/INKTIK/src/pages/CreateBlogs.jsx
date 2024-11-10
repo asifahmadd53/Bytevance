@@ -135,14 +135,16 @@ const CreateBlogs = () => {
 
                 </div>
 
-                <div className="flex items-center gap-2">
+                   <div className="md:flex md:items-center md:justify-center gap-4">
                <button className="bg-[#000] text-white py-2 rounded-3xl mt-4 px-5 w-24 my-5">
                   Post
                 </button>
                 {isPostCreated ? <p className="text-sm md:text-lg pb-3">
                   Your post will appear after admin approval. Thank you!
                 </p> : ''}
+
                </div>
+
 
 
 
