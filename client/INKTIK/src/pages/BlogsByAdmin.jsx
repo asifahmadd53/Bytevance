@@ -61,7 +61,7 @@ const BlogsByAdmin = () => {
             <div className="flex flex-col items-start w-full max-w-md md:max-w-lg lg:max-w-xl relative">
               <form onSubmit={createdBlog} method="post" encType="multipart/form-data" className="flex flex-col items-center justify-center w-full">
                 <h1 className="text-center text-4xl sm:text-5xl font-bold mb-6">
-                  Create Blog
+                  Create Blog By Admin
                 </h1>
                 <div className="w-full px-4">
                   <label className="pb-5" htmlFor="">Title</label>
