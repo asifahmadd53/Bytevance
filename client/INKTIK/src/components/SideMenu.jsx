@@ -74,12 +74,13 @@ const SideMenu = () => {
                     </Link>
                 )
                })}
-                
-           {!userInfo && (
+               {!userInfo && (
  <button className='bg-white text-black px-6 py-2 text-center rounded-[5rem] md:hidden'>
  <Link to={'/signup'}>Join</Link>
 </button>
                )}
+               
+
                 {/* {userInfo && <ProfileIcon/>} */}
                 <p className='text-sm'>Already have an account? <Link to={'/login'} className='underline'>Login</Link></p>
             </ul>
