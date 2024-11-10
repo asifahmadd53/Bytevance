@@ -58,12 +58,11 @@ const Stories = () => {
       ref={swiperRef}
       className='flex  px-4  overflow-auto md:my-6 hide-scrollbar'
       style={{ scrollSnapType: 'x mandatory' }}
-    >
-     {Array.isArray(blogs) && blogs.length > 0 ? (
-  [...blogs].reverse().map((blog) => (
-    <Story key={blog._id} {...blog} />
-  ))
-)  : (
+     {Array.isArray(blogs) && blogs.length > 0 ? ( // Check if blogs is an array and has items
+        blogs.reverse().map((blog) => (
+          <Story key={blog._id} {...blog} />
+        ))
+      )  : (
         <div role='status' className='max-w-md mt-6 md:h-96 border border-gray-300 rounded-lg p-4 xs:w-60 sm:w-72 md:w-80 lg:w-96'>
       <div class="animate-pulse w-full bg-gray-300 h-48 rounded-lg mb-5 flex justify-center items-center">
         <svg class="w-8 h-8 stroke-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
