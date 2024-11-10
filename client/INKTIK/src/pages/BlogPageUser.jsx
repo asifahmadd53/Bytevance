@@ -73,7 +73,7 @@ return (
       <article className="mb-4 md:mb-0 w-full mx-auto relative sm:flex sm:items-center sm:justify-between ">
         <div className="px-5 sm:w-[60%]">
           {/* Updated Title Design */}
-          <h2 className="text-5xl font-bold text-gray-900 tracking-wide w-full break-words leading-tight">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl font-bold text-gray-900 tracking-wide w-full break-words leading-tight">
             {blogInfo.title}
           </h2>
           <div className="flex items-center gap-4 py-4 pt-5">
