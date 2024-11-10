@@ -74,13 +74,12 @@ const SideMenu = () => {
                     </Link>
                 )
                })}
-                 {userInfo ? (
-        ''
-    ) : (
-        <button className="border transition-colors duration-300 ease-in-out px-6 py-2 hidden md:block rounded-[3rem] bg-black text-white text-xl hover:bg-[#314bff]">
-            <Link to='/signup'>Join</Link>
-        </button>
-    )}
+                
+               {!userInfo && (
+    <button className="border transition-colors duration-300 ease-in-out px-6 py-2 hidden md:block rounded-[3rem] bg-black text-white text-xl hover:bg-[#314bff]">
+        <Link to='/signup'>Join</Link>
+    </button>
+)}
                 {/* {userInfo && <ProfileIcon/>} */}
                 <p className='text-sm'>Already have an account? <Link to={'/login'} className='underline'>Login</Link></p>
             </ul>
