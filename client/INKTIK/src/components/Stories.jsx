@@ -60,7 +60,7 @@ const Stories = () => {
       style={{ scrollSnapType: 'x mandatory' }}
     >
       {Array.isArray(blogs) && blogs.length > 0 ? ( // Check if blogs is an array and has items
-        blogs.map((blog) => (
+        blogs.reverse().map((blog) => (
           <Story key={blog._id} {...blog} />
         ))
       ) : (
