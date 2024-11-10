@@ -119,7 +119,7 @@ const BlogsByAdmin = () => {
 
                 </div>
                 
-                <button className="bg-[#000] text-white py-2 rounded-3xl mt-4 px-7 my-4">
+                <button className="bg-[#000] text-white py-2 rounded-3xl mt-4 px-7 mb-6">
                   Post
                 </button>
               </form>
