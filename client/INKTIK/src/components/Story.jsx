@@ -34,7 +34,7 @@ const Story = ({ _id, fullname, author, cover, title, description, createdAt }) 
       <div className="flex items-center justify-between p-4">
         <div className="flex items-center">
           <img
-            alt={author.fullname}
+            alt={fullname}
             src={profileicon}
             className="relative inline-block h-8 w-8 rounded-full"
           />
