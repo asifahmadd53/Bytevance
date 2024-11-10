@@ -135,7 +135,7 @@ const CreateBlogs = () => {
 
                 </div>
 
-                 <div className="md:flex flex flex-col md:items-center md:justify-center gap-4">
+                 <div className="md:flex-row flex flex-col items-center justify-center gap-4">
                <button className="bg-[#000] text-white py-2 rounded-3xl mt-4 px-5 w-24 my-5">
                   Post
                 </button>
