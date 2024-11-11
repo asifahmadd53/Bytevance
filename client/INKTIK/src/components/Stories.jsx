@@ -56,11 +56,11 @@ const Stories = () => {
 
      <div
   ref={swiperRef}
-  className='flex  flex-row-reverse px-4  overflow-auto md:my-6 hide-scrollbar'
+  className='flex  px-4  overflow-auto md:my-6 hide-scrollbar'
   style={{ scrollSnapType: 'x mandatory' }}
     >
 {Array.isArray(blogs) && blogs.length > 0 ? ( // Check if blogs is an array and has items
-  blogs.map((blog) => ( // Use slice to create a copy and reverse it
+  blogs.slice().reverse().map((blog) => ( // Use slice to create a copy and reverse it
     <Story key={blog._id} {...blog} />
   ))
 ) : (
