@@ -113,10 +113,17 @@ const BlogPage = () => {
             <div className="py-6 bg-white">
                 <div className="md:w-[80%] xs:w-[90%] mx-auto pt-4">
                     <h1 className="font-semibold text-lg mt-4">Description:</h1>
-                    <p className="mt-2 text-md break-words">{blogInfo.description}</p>
+                    <p
+  className="mt-2 text-md break-words"
+  dangerouslySetInnerHTML={{ __html: blogInfo.description }}
+></p>
+
 
                     <h1 className="font-semibold text-lg mt-4">Summary:</h1>
-                    <p className="mt-2 text-md break-all">{blogInfo.summary}</p>
+                     <p
+  className="mt-2 text-md break-all"
+  dangerouslySetInnerHTML={{ __html: blogInfo.summary }}
+></p>
                 </div>
             </div>
         </div>
