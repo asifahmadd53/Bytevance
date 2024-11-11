@@ -110,7 +110,7 @@ const CreateBlogs = () => {
                     placeholder="Add a Symmary..."
                     rows={8}
                   />
-                  <div className="flex items-center ">
+                  <div className="flex items-center pt-10">
                     <div className="w-10 h-10 rounded-full mt-4 flex items-center justify-center ">
                       <input
                         onChange={handleImageChange}
