@@ -8,7 +8,7 @@ const BlogPage = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/blog/blog/${id}`)
+        axios.get(`https://bytvance-backend.vercel.app/blog/blog/${id}`)
             .then(response => setBlogInfo(response.data))
             .catch(error => {
                 console.error(error);
@@ -18,7 +18,7 @@ const BlogPage = () => {
 
     const handleApprove = async () => {
         try {
-            await axios.patch(`http://localhost:5000/admin/approved/${id}`);
+            await axios.patch(`https://bytvance-backend.vercel.app/admin/approved/${id}`);
             setBlogInfo(prev => ({ ...prev, approved: true }));
         } catch (error) {
             console.log(error);
