@@ -77,7 +77,7 @@ const CreateBlogs = () => {
           <div className='w-full flex flex-col items-center justify-center'>
             <div className='flex flex-col items-start justify-center w-full max-w-xl  p-2 h-[30rem] md:ml-20 lg:ml-10'>
 
-              <form onSubmit={createdBlog} method="post" encType="multipart/form-data" className="flex flex-col mt-56 w-full">
+              <form onSubmit={createdBlog} method="post" encType="multipart/form-data" className="flex flex-col mt-64  w-full">
                 <h1 className="text-left text-4xl sm:text-5xl font-bold my-10">
                   Create Blog
                 </h1>
