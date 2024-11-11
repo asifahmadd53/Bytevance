@@ -8,7 +8,7 @@ const Stories = () => {
   useEffect(() => {
     axios.get('https://bytvance-backend.vercel.app/blog/approved-blogs')
       .then((res) => {
-        setBlogs(res.data);
+        setBlogs(res.data.reverse());
       }).catch((err) => {
         console.log(err);
       });
