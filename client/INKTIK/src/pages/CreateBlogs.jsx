@@ -102,12 +102,13 @@ const CreateBlogs = () => {
                     rows={4}
                   />
                   <label htmlFor="">Details</label>
-                  <textarea
+                  <ReactQuill
                     value={summary}
-                    onChange={(e) => setSummary(e.target.value)}
-                    className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow mt-2 resize-none"
-                    placeholder="Type here..."
-                    rows={6}
+                    onChange={setSummary}
+                    modules={{ toolbar: summaryToolbarOptions }}
+                    className="my-2 h-40 w-full "
+                    placeholder="Add a Symmary..."
+                    rows={8}
                   />
                   <div className="flex items-center ">
                     <div className="w-10 h-10 rounded-full mt-4 flex items-center justify-center ">
