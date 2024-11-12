@@ -42,7 +42,7 @@ const Hero = () => {
     <div className='h-auto w-full'>
       <div className='pt-6 px-3 pl-6 md:px-16 lg:mx-4'>
       <h1 className='text-[2rem] xs:text-7xl md:text-8xl md:pt-10 md:pb-8'>
-  <span className='font-bold text-[2.4rem] xs:text-6xl md:text-8xl'>
+  <span className='font-bold text-[2.4rem] xs:text-6xl md:text-[5.5rem] lg:text-[6.3rem]'>
     Hey, we're Bytvance<span className='text-2xl md:text-4xl'>●</span>
   </span>
   <br className='hidden' /> <span className='tracking-wider text-4xl xs:text-[3.4rem] sm:text-6xl md:text-8xl font-thin sub-heading'>See our thoughts, stories and ideas.</span>
