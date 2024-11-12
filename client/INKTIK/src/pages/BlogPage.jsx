@@ -69,14 +69,16 @@ const BlogPage = () => {
         <div className="w-full mx-auto py-10 bg-white ">
             <div className="w-[90%] mx-auto flex justify-between items-center text-gray-800 text-2xl md:text-4xl font-semibold pt-10">
                 <h1></h1>
-                <button
-                    className={`py-1 px-2 rounded-md ${
-                        blogInfo.approved ? 'bg-red-600' : 'bg-green-600'
-                    }`}
-                    onClick={blogInfo.approved ? handlePending : handleApprove}
-                >
-                    {blogInfo.approved ? 'Mark as Pending' : 'Approve'}
-                </button>
+             <button
+    className={`py-1 px-2 rounded-md text-white font-semibold transition-colors duration-300 ${
+        blogInfo.approved
+            ? 'bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700'
+            : 'bg-gradient-to-r from-green-600 to-green-800 hover:from-green-500 hover:to-green-700'
+    }`}
+    onClick={blogInfo.approved ? handlePending : handleApprove}
+>
+    {blogInfo.approved ? 'Mark as Pending' : 'Approve'}
+</button>
             </div>
 
             <h1 className="w-[92%] mx-auto lg:text-4xl md:text-3xl xs:text-2xl text-center font-serif font-semibold pb-4 pt-8 dark:text-white">
@@ -94,24 +96,26 @@ const BlogPage = () => {
                     <img
                         src={profileicon}
                         alt="Blogger Profile"
-                        className="md:w-[2.2rem] md:h-[2.2rem] xs:w-[2rem] xs:h-[2rem] rounded-full"
+                        className="md:w-[2.2rem] md:h-[2.2rem] w-[2rem] xs:h-[2rem] rounded-full border border-black"
                     />
-                    <h2 className="text-sm font-semibold">
+                    <h2 className="text-sm font-semibold px-2">
                         {blogInfo.author?.fullname || 'Anonymous'}
                     </h2>
                 </div>
-                <div>|</div>
-                <h3 className="text-sm font-semibold text-gray-600">
+                <div className='hidden md:block'>|</div>
+                <h3 className="text-sm font-semibold text-gray-600 pt-3 md:pt-0">
                     {new Date(blogInfo.createdAt).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric',
                     })}
                 </h3>
             </div>
 
             <div className="py-6 bg-white">
-                <div className="md:w-[80%] xs:w-[90%] mx-auto pt-4">
+                <div className="w-[90%] mx-auto pt-4">
                     <h1 className="font-semibold text-lg mt-4">Description:</h1>
                     <p
   className="mt-2 text-md break-words"
