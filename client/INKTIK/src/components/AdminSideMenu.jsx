@@ -36,11 +36,10 @@ const AdminSideMenu = () => {
                 <div className='flex items-center justify-between p-3 px-6 '>
                     <div className='relative flex items-center gap-2'>
                         
-                            <img src={logo3} className='w-32 mix-blend-color-burn z-30 '  alt="Logo" />
-                        
+<h1 className='text-xl md:text-[2rem] text-white'>Bytvance</h1>                        
                         
                     </div>
-                    <div onClick={()=> setOpen((prev)=> !prev)} className='rounded-full h-11 w-11 items-center flex justify-center'>
+                    <div onClick={()=> setOpen((prev)=> !prev)} className='rounded-full h-10 w-10 items-center flex justify-center bg-slate-900'>
                         <svg className='w-8 h-8 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                             <path fill="none" stroke="white" strokeLinecap="round" d="m6 6l12 12m0-12L6 18"/>
                         </svg>
@@ -55,25 +54,25 @@ const AdminSideMenu = () => {
                 </div>
                 <hr className="w-[90%] m-auto border-t border-neutral-700 outline-none mt-3" />
 
-                <ul className='flex md:hidden gap-4 flex-col items-start px-6 text-black'>
+                <ul className='flex md:hidden gap-4 flex-col items-start px-6 text-white'>
                     
                 </ul>
 
-                <h1 className='text-black text-center text-xl p-4 font-bold'>Admin Dashboard</h1>
-                <ul className='text-3xl text-black text-center py-8'>
-                <li className="pb-2 relative transition-all ease-linear duration-700 hover:underline after:bg-black cursor-pointer">
+                <h1 className='text-white text-center text-xl md:text-[2rem] p-4 font-bold md:pt-4'>Admin Dashboard</h1>
+                <ul className='text-3xl text-white text-center py-12 flex flex-col gap-4'>
+                <li className="relative transition-all ease-linear duration-700 hover:underline after:bg-black cursor-pointer">
                 <Link onClick={()=> setOpen((prev)=> !prev)} to={'/admin-panel/blogs-by-admin'}>
                 Create Blogs
 
                 </Link>
                 </li>
 
-                    <li className="pb-5 relative transition-all ease-linear duration-1000 hover:underline  after:bg-black cursor-pointer">
+                    <li className="relative transition-all ease-linear duration-1000 hover:underline  after:bg-black cursor-pointer">
                         <Link onClick={()=> setOpen((prev)=> !prev)} to='/admin-panel/pending-blogs'>
                         Pending Blogs
                         </Link>
                         </li>
-                    <li className="pb-5 relative transition-all ease-linear duration-1000 hover:underline  after:bg-black cursor-pointer">
+                    <li className="relative transition-all ease-linear duration-1000 hover:underline  after:bg-black cursor-pointer">
                         <Link onClick={()=> setOpen((prev)=> !prev)} to='/admin-panel/approved-blogs'>
                         Approved Blogs
                         </Link>
