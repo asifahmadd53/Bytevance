@@ -36,8 +36,9 @@ const AdminSideMenu = () => {
                 <div className='flex items-center justify-between p-3 px-6 '>
                     <div className='relative flex items-center gap-2'>
                         
-<h1 className='text-xl md:text-[2rem] text-white'>Bytvance</h1>                        
-                        
+
+                            <h1 className='text-2xl md:text-3xl text-white'>Bytvance</h1>
+                                                
                     </div>
                     <div onClick={()=> setOpen((prev)=> !prev)} className='rounded-full h-10 w-10 items-center flex justify-center bg-slate-900'>
                         <svg className='w-8 h-8 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -58,7 +59,7 @@ const AdminSideMenu = () => {
                     
                 </ul>
 
-                <h1 className='text-white text-center text-xl md:text-[2rem] p-4 font-bold md:pt-4'>Admin Dashboard</h1>
+                <h1 className='text-white text-center text-2xl md:text-3xl  md:text-[2rem] p-4 font-bold md:pt-4'>Admin Dashboard</h1>
                 <ul className='text-3xl text-white text-center py-12 flex flex-col gap-4'>
                 <li className="relative transition-all ease-linear duration-700 hover:underline after:bg-black cursor-pointer">
                 <Link onClick={()=> setOpen((prev)=> !prev)} to={'/admin-panel/blogs-by-admin'}>
