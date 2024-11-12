@@ -60,7 +60,7 @@ const AdminSideMenu = () => {
                 </ul>
 
                 <h1 className='text-white text-center text-2xl md:text-3xl  md:text-[2rem] p-4 font-bold md:pt-4'>Admin Dashboard</h1>
-                <ul className='text-3xl text-white text-center py-12 flex flex-col gap-4'>
+                <ul className='text-3xl text-white text-center py-12 flex flex-col gap-5'>
                 <li className="relative transition-all ease-linear duration-700 hover:underline after:bg-black cursor-pointer">
                 <Link onClick={()=> setOpen((prev)=> !prev)} to={'/admin-panel/blogs-by-admin'}>
                 Create Blogs
