@@ -91,7 +91,7 @@ const BlogPage = () => {
                 className="w-[80%] sm:w-[60%] md:w-[40%]  mx-auto rounded-lg object-contain"
             />
 
-            <div className="w-[90%] mx-auto flex md:gap-4 xs:gap-2 justify-center items-center pt-4">
+            <div className="w-[90%] mx-auto flex flex-col md:flex-row  md:gap-4 xs:gap-2 justify-center items-center pt-4">
                 <div className="flex gap-2 items-center">
                     <img
                         src={profileicon}
