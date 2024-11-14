@@ -101,7 +101,7 @@ const CreateBlogs = () => {
                     placeholder="Title"
                   />
 
-                  <label >Description</label>
+                  <label>Short Description</label>
                   <textarea
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
