@@ -35,7 +35,7 @@ const Recomended = () => {
         </div>
         <span class="h-2 bg-gray-300 rounded-full w-16 "></span>
        </div>
-       </div> : <div className='grid w-full grid-cols-2 xs:grid-cols-3 md:px-14 lg:px-20 px-8 sm:grid-cols-4 md:gap-5 md:grid-cols-5 pt-10 gap-2'>
+       </div> : <div className='grid w-full grid-cols-2 xs:grid-cols-3 md:px-14 lg:px-20 px-6 sm:grid-cols-4 md:gap-5 md:grid-cols-5 pt-8 gap-2'>
        {
        blogs.slice(3, 9).map((blog) => {
           return <RecomendedCards key={blog._id} {...blog} />
