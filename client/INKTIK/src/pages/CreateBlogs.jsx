@@ -35,18 +35,26 @@ const CreateBlogs = () => {
 
     try {
 
-      await axios.post('https://bytvance-backend.vercel.app/blog/created-blog', formData, {
+        const promise = axios.post('https://bytvance-backend.vercel.app/blog/created-blog', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
         withCredentials: true // Ensure cookies are sent with the request
       });
+      toast.promise(promise, {
+        loading: 'Please wait...',
+        success: 'Blog created successfully',
+        error: 'Error creating blog',
+      });
+
+      const { data } = await promise;
+    
       setImage('')
       setTitle('')
       setDescription('')
       setSummary('')
       setIsPostCreated(true)
-      toast.success('Blog created successfully')
+     
 
     } catch (err) {
 
