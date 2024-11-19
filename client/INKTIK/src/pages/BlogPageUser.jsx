@@ -73,9 +73,10 @@ return (
       <article className="mb-4 md:mb-0 w-full mx-auto relative sm:flex sm:items-center sm:justify-between ">
         <div className="px-5 sm:w-[60%]">
           {/* Updated Title Design */}
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl font-bold text-gray-900 tracking-wide w-full break-words leading-tight">
+          <h2 className="text-3xl xs:text-4xl  sm:text-4xl md:text-5xl font-bold text-gray-900 tracking-wide w-full break-words leading-tight">
             {blogInfo.title}
           </h2>
+          
           <div className="flex items-center gap-4 py-4 pt-5">
             <img
               className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-contain object-top"
@@ -104,10 +105,10 @@ return (
         </div>
       
 
-         <img
+       <img
                 src={blogInfo.cover}
                 alt="Blog Cover"
-                className="w-[90%] sm:w-[60%] md:w-[40%] h-96 xs:h-[27rem] md:h-[33rem]  mx-auto rounded-lg object-contain"
+                className="w-[90%] sm:w-[60%] md:w-[50%] h-96 xs:h-[27rem] md:h-[33rem]  mx-auto rounded-lg object-cover"
             />
       </article>
 
