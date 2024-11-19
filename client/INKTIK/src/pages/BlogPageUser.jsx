@@ -78,7 +78,7 @@ return (
           </h2>
           <div className="flex items-center gap-4 py-4 pt-5">
             <img
-              className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-cover object-top"
+              className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 object-contain object-top"
                src={!blogInfo ? admin : profileicon}
               alt="Profile Avatar"
             />
