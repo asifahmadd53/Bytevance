@@ -104,13 +104,11 @@ return (
         </div>
       
 
-        <div className="sm:w-[40%] md:w-[30%] h-[33rem] xs:h-[37rem] md:h-[30rem] sm:h-[25rem]">
           <img
-            src={blogInfo.cover}
-            alt="Blog visual"
-            className="object-cover md:w-full h-full md:h-full w-[93%] mx-auto mt-5 rounded-xl md:rounded-[1.5rem]"
-          />
-        </div>
+                src={blogInfo.cover}
+                alt="Blog Cover"
+                className="w-[80%] sm:w-[60%] md:w-[40%]  mx-auto rounded-lg object-contain"
+            />
       </article>
 
       <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-12">
