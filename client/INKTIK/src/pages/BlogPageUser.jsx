@@ -108,7 +108,7 @@ return (
        <img
                 src={blogInfo.cover}
                 alt="Blog Cover"
-                className="w-[90%] sm:w-[60%] md:w-[50%] h-96 xs:h-[27rem] md:h-[33rem]  mx-auto rounded-lg object-cover"
+                className="w-[90%] sm:w-[60%] md:w-[50%] h-96 xs:h-[27rem] md:h-[33rem]  mx-auto rounded-lg object-contain"
             />
       </article>
 
