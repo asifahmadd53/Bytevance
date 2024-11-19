@@ -67,7 +67,7 @@ const BlogPageUser = () => {
   
   
 return (
-  <div className="px-2 md:px-20">
+  <div className="px-2  sm:px-10 md:px-20">
   {blogInfo ? (
     <main className="mt-10 w-full">
       <article className="mb-4 md:mb-0 w-full mx-auto relative sm:flex sm:items-center sm:justify-between ">
@@ -104,10 +104,10 @@ return (
         </div>
       
 
-          <img
+         <img
                 src={blogInfo.cover}
                 alt="Blog Cover"
-                className="w-[80%] sm:w-[60%] md:w-[40%]  mx-auto rounded-lg object-contain"
+                className="w-[90%] sm:w-[60%] md:w-[40%] h-96 xs:h-[27rem] md:h-[33rem]  mx-auto rounded-lg object-cover"
             />
       </article>
 
